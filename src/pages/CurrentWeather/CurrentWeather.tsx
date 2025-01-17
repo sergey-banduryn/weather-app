@@ -6,13 +6,14 @@ import { fetchWeather } from "@api";
 import { useStore } from "@store";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
+import { toast } from "react-toastify";
 
 interface ICurrentWeatherProps {
   city: string;
 }
 
 function CurrentWeather({ city }: ICurrentWeatherProps) {
-  const { addCity, favoriteCities, toggleFavorite } = useStore();
+  const { addSearchedCity, favoriteCities, toggleFavorite } = useStore();
 
   const { isPending, isError, isSuccess, data, error } = useQuery({
     queryKey: ["fetchWeather", city],
@@ -21,33 +22,40 @@ function CurrentWeather({ city }: ICurrentWeatherProps) {
 
   useEffect(() => {
     if (isSuccess) {
-      addCity(data.name);
+      addSearchedCity(data.name);
     }
   }, [city, isSuccess]);
 
-  const isFavorite = favoriteCities.includes(city);
-  const toggleFavoriteCity = () => toggleFavorite(city);
+  useEffect(() => {
+    if (isError) toast(error.message);
+  }, [isError]);
 
   let formattedData;
   if (data) formattedData = formatWeatherData(data);
 
+  const isFavorite = favoriteCities.includes(city);
+  const toggleFavoriteCity = () => toggleFavorite(city);
+
   return (
     <Box sx={styles.box}>
+      <Typography variant="h4">{city}</Typography>
+      <Box sx={styles.favoriteBtn}>
+        <FavoriteBtn {...{ isFavorite, toggleFavorite: toggleFavoriteCity }} />
+      </Box>
       {isPending && (
         <Stack spacing={1}>
-          <Skeleton variant="rounded" width={120} height={40} />
           <Skeleton variant="rounded" width={70} height={30} />
           <Skeleton variant="rounded" width={70} height={30} />
           <Skeleton variant="rounded" width={70} height={30} />
         </Stack>
       )}
-      <Typography variant="h4">{formattedData?.name}</Typography>
-      <Typography variant="h5">{formattedData?.temp}</Typography>
-      <Typography variant="h5">{formattedData?.humidity}</Typography>
-      <Typography variant="h5">{formattedData?.speed}</Typography>
-      <Box sx={styles.favoriteBtn}>
-        <FavoriteBtn {...{ isFavorite, toggleFavorite: toggleFavoriteCity }} />
-      </Box>
+      {isSuccess && (
+        <>
+          <Typography variant="h5">{formattedData?.temp}</Typography>
+          <Typography variant="h5">{formattedData?.humidity}</Typography>
+          <Typography variant="h5">{formattedData?.speed}</Typography>
+        </>
+      )}
     </Box>
   );
 }

@@ -4,7 +4,7 @@ export * from "./responses";
 
 export interface IStore {
   searchedCities: string[];
-  addCity: (city: string) => void;
+  addSearchedCity: (city: string) => void;
   favoriteCities: string[];
   toggleFavorite: (city: string) => void;
 }

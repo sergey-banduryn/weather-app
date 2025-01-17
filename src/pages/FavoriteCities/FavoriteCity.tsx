@@ -21,13 +21,9 @@ function FavoriteCity({
     enabled: !!city?.length,
   });
 
-  let name, temp;
+  let formattedData;
 
-  if (isSuccess) {
-    const formattedData = formatWeatherData(data);
-    name = formattedData.name;
-    temp = formattedData.temp;
-  }
+  if (isSuccess) formattedData = formatWeatherData(data);
 
   return (
     <Box
@@ -47,9 +43,9 @@ function FavoriteCity({
           width: 1 / 3,
         }}
       >
-        {name}
+        {city}
       </Typography>
-      <Typography>{temp}</Typography>
+      <Typography>{formattedData?.temp}</Typography>
       <FavoriteBtn {...{ isFavorite, toggleFavorite }} />
     </Box>
   );

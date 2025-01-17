@@ -3,16 +3,22 @@ import { fetchForecast } from "@api";
 import { getForecastDays } from "@helpers";
 import ForecastDays from "./ForecastDays";
 import { Box, CircularProgress } from "@mui/material";
+import { useEffect } from "react";
+import { toast } from "react-toastify";
 
 interface IForecastContainerProps {
   city: string;
 }
 
 function ForecastContainer({ city }: IForecastContainerProps) {
-  const { isPending, data } = useQuery({
+  const { isPending, data, isError, error } = useQuery({
     queryKey: ["fetchForecast", city],
     queryFn: () => fetchForecast(city),
   });
+
+  useEffect(() => {
+    if (isError) toast(error.message);
+  }, [isError]);
 
   let forecastDays;
   if (data) forecastDays = getForecastDays(data.list);

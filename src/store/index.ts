@@ -6,7 +6,7 @@ const useStore = create<IStore>()(
   persist(
     (set) => ({
       searchedCities: [],
-      addCity: (city) =>
+      addSearchedCity: (city) =>
         set((state) => {
           const set = new Set(state.searchedCities);
           set.delete(city);
