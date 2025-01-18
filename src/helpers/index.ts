@@ -9,14 +9,15 @@ import {
 export function formatWeatherData(
   data: IWeatherResponse
 ): IFormattedWeatherData {
-  let name, humidity, temp, speed;
+  let name, humidity, temp, speed, state;
   name = data.name;
   temp = Math.round(data.main.temp);
   temp = temp > 0 ? "+" + temp + "°" : temp + "°";
   humidity = data.main.humidity + "%";
   speed = data.wind.speed.toFixed(1);
+  state = data.weather[0].main;
 
-  return { name, humidity, temp, speed };
+  return { name, humidity, temp, speed, state };
 }
 
 export function getForecastDays(

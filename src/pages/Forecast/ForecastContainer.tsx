@@ -15,6 +15,7 @@ function ForecastContainer({ city }: IForecastContainerProps) {
     queryKey: ["fetchForecast", city],
     queryFn: () => fetchForecast(city),
   });
+  console.log(data);
 
   useEffect(() => {
     if (isError) toast(error.message);

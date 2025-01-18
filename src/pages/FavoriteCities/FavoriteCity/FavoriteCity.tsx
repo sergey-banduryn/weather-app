@@ -1,8 +1,10 @@
 import { Box, Typography } from "@mui/material";
-import FavoriteBtn from "@components/FavoriteBtn";
+import FavoriteBtn from "@components/FavoriteBtn/FavoriteBtn";
 import { useQuery } from "@tanstack/react-query";
 import { fetchWeather } from "@api";
 import { formatWeatherData } from "@helpers";
+import { WeatherStateIcon } from "@components";
+import { styles } from "./styles";
 
 interface IFavoriteCityProps {
   city: string;
@@ -26,26 +28,14 @@ function FavoriteCity({
   if (isSuccess) formattedData = formatWeatherData(data);
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        width: 250,
-        px: 2,
-        py: 1,
-        borderRadius: 4,
-        bgcolor: "#ffedd3",
-      }}
-    >
-      <Typography
-        sx={{
-          width: 1 / 3,
-        }}
-      >
-        {city}
-      </Typography>
+    <Box sx={styles.box}>
+      <Typography sx={styles.cityName}>{city}</Typography>
       <Typography>{formattedData?.temp}</Typography>
+      {formattedData && (
+        <Box sx={styles.stateIcon}>
+          <WeatherStateIcon state={formattedData?.state} />
+        </Box>
+      )}
       <FavoriteBtn {...{ isFavorite, toggleFavorite }} />
     </Box>
   );

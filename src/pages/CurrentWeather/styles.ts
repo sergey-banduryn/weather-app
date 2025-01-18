@@ -11,4 +11,11 @@ export const styles = {
     right: "5%",
     top: "5%",
   },
+  stateIcon: {
+    position: "absolute",
+    width: 60,
+    height: 60,
+    right: "10%",
+    bottom: "10%",
+  },
 } as const;

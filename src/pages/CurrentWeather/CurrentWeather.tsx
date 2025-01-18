@@ -1,4 +1,4 @@
-import FavoriteBtn from "@components/FavoriteBtn";
+import FavoriteBtn from "@components/FavoriteBtn/FavoriteBtn";
 import { Box, Skeleton, Stack, Typography } from "@mui/material";
 import { styles } from "./styles";
 import { formatWeatherData } from "@helpers";
@@ -7,6 +7,7 @@ import { useStore } from "@store";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
+import { WeatherStateIcon } from "@components";
 
 interface ICurrentWeatherProps {
   city: string;
@@ -19,7 +20,7 @@ function CurrentWeather({ city }: ICurrentWeatherProps) {
     queryKey: ["fetchWeather", city],
     queryFn: () => fetchWeather(city),
   });
-
+  console.log(data);
   useEffect(() => {
     if (isSuccess) {
       addSearchedCity(data.name);
@@ -54,6 +55,11 @@ function CurrentWeather({ city }: ICurrentWeatherProps) {
           <Typography variant="h5">{formattedData?.temp}</Typography>
           <Typography variant="h5">{formattedData?.humidity}</Typography>
           <Typography variant="h5">{formattedData?.speed}</Typography>
+          {formattedData && (
+            <Box sx={styles.stateIcon}>
+              <WeatherStateIcon state={formattedData?.state} />
+            </Box>
+          )}
         </>
       )}
     </Box>

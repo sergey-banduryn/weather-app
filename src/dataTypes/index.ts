@@ -1,3 +1,4 @@
+import { WeatherState } from "@enums";
 import { IForecastItemResponse } from "./responses";
 
 export * from "./responses";
@@ -14,6 +15,7 @@ export interface IFormattedWeatherData {
   humidity: string;
   temp: string;
   speed: string;
+  state: WeatherState;
 }
 
 export interface IFormattedForecastData {
