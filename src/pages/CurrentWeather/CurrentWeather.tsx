@@ -8,6 +8,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
 import { WeatherStateIcon } from "@components";
+import BackgroundImageByWeather from "@components/BackgroundImageByWeather";
 
 interface ICurrentWeatherProps {
   city: string;
@@ -20,7 +21,7 @@ function CurrentWeather({ city }: ICurrentWeatherProps) {
     queryKey: ["fetchWeather", city],
     queryFn: () => fetchWeather(city),
   });
-  console.log(data);
+
   useEffect(() => {
     if (isSuccess) {
       addSearchedCity(data.name);
@@ -39,7 +40,9 @@ function CurrentWeather({ city }: ICurrentWeatherProps) {
 
   return (
     <Box sx={styles.box}>
-      <Typography variant="h4">{city}</Typography>
+      <Typography variant="h4" sx={styles.text}>
+        {city}
+      </Typography>
       <Box sx={styles.favoriteBtn}>
         <FavoriteBtn {...{ isFavorite, toggleFavorite: toggleFavoriteCity }} />
       </Box>
@@ -52,9 +55,18 @@ function CurrentWeather({ city }: ICurrentWeatherProps) {
       )}
       {isSuccess && (
         <>
-          <Typography variant="h5">{formattedData?.temp}</Typography>
-          <Typography variant="h5">{formattedData?.humidity}</Typography>
-          <Typography variant="h5">{formattedData?.speed}</Typography>
+          {formattedData && (
+            <BackgroundImageByWeather state={formattedData?.state} />
+          )}
+          <Typography variant="h5" sx={styles.text}>
+            {formattedData?.temp}
+          </Typography>
+          <Typography variant="h5" sx={styles.text}>
+            {formattedData?.humidity}
+          </Typography>
+          <Typography variant="h5" sx={styles.text}>
+            {formattedData?.speed}
+          </Typography>
           {formattedData && (
             <Box sx={styles.stateIcon}>
               <WeatherStateIcon state={formattedData?.state} />

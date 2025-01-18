@@ -10,6 +10,7 @@ export const styles = {
     position: "absolute",
     right: "5%",
     top: "5%",
+    zIndex: 2,
   },
   stateIcon: {
     position: "absolute",
@@ -17,5 +18,10 @@ export const styles = {
     height: 60,
     right: "10%",
     bottom: "10%",
+    zIndex: 2,
+  },
+  text: {
+    position: "relative",
+    zIndex: 2,
   },
 } as const;
