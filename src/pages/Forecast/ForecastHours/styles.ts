@@ -14,8 +14,8 @@ export const styles = {
     width: "100px",
   },
   timeTitle: {
-    bgcolor: "lightgray",
-    width: "100%",
-    textAlign: "center",
+    // bgcolor: "lightgray",
+    // width: "100%",
+    // textAlign: "center",
   },
 } as const;

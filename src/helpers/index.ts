@@ -47,13 +47,14 @@ export function getForecastDays(
 export function formatForecastData(
   data: IForecastItemResponse
 ): IFormattedForecastData {
-  let humidity, temp, speed;
+  let humidity, temp, speed, state;
   temp = Math.round(data.main.temp);
   temp = temp > 0 ? "+" + temp + "°" : temp + "°";
   humidity = data.main.humidity;
   speed = data.wind.speed.toFixed(1);
+  state = data.weather[0].main;
 
-  return { humidity, temp, speed };
+  return { humidity, temp, speed, state };
 }
 
 export function getCurrentTimeStr() {
