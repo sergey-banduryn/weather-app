@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import { toast } from "react-toastify";
 import { WeatherStateIcon } from "@components";
 import BackgroundImageByWeather from "@components/BackgroundImageByWeather";
+import NorthIcon from "@mui/icons-material/North";
 
 interface ICurrentWeatherProps {
   city: string;
@@ -53,25 +54,28 @@ function CurrentWeather({ city }: ICurrentWeatherProps) {
           <Skeleton variant="rounded" width={70} height={30} />
         </Stack>
       )}
-      {isSuccess && (
+      {isSuccess && formattedData && (
         <>
-          {formattedData && (
-            <BackgroundImageByWeather state={formattedData?.state} />
-          )}
+          <BackgroundImageByWeather state={formattedData?.state} />
           <Typography variant="h5" sx={styles.text}>
             {formattedData?.temp}
           </Typography>
           <Typography variant="h5" sx={styles.text}>
             {formattedData?.humidity}
           </Typography>
-          <Typography variant="h5" sx={styles.text}>
-            {formattedData?.speed}
-          </Typography>
-          {formattedData && (
-            <Box sx={styles.stateIcon}>
-              <WeatherStateIcon state={formattedData?.state} />
+          <Box sx={styles.wind}>
+            <Box
+              sx={[styles.arrowWrap, { rotate: `${formattedData?.deg}deg` }]}
+            >
+              <NorthIcon sx={styles.arrow} />
             </Box>
-          )}
+            <Typography variant="h5" sx={styles.text}>
+              {formattedData?.speed}
+            </Typography>
+          </Box>
+          <Box sx={styles.stateIcon}>
+            <WeatherStateIcon state={formattedData?.state} />
+          </Box>
         </>
       )}
     </Box>

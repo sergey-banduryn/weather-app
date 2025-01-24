@@ -15,6 +15,7 @@ export interface IFormattedWeatherData {
   humidity: string;
   temp: string;
   speed: string;
+  deg: number;
   state: WeatherState;
 }
 

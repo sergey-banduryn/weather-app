@@ -24,4 +24,21 @@ export const styles = {
     position: "relative",
     zIndex: 2,
   },
+  wind: {
+    display: "flex",
+    alignItems: "center",
+    gap: 1,
+  },
+  arrowWrap: {
+    display: "inline-block",
+    width: 20,
+    height: 20,
+    borderRadius: "50%",
+    bgcolor: "white",
+  },
+  arrow: {
+    width: "100%",
+    height: "100%",
+    color: "grey",
+  },
 } as const;

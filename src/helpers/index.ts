@@ -9,15 +9,16 @@ import {
 export function formatWeatherData(
   data: IWeatherResponse
 ): IFormattedWeatherData {
-  let name, humidity, temp, speed, state;
+  let name, humidity, temp, speed, deg, state;
   name = data.name;
   temp = Math.round(data.main.temp);
   temp = temp > 0 ? "+" + temp + "°" : temp + "°";
   humidity = data.main.humidity + "%";
   speed = data.wind.speed.toFixed(1);
+  deg = data.wind.deg;
   state = data.weather[0].main;
 
-  return { name, humidity, temp, speed, state };
+  return { name, humidity, temp, speed, deg, state };
 }
 
 export function getForecastDays(
@@ -57,7 +58,7 @@ export function formatForecastData(
   return { humidity, temp, speed, state };
 }
 
-export function getCurrentTimeStr() {
+export function getCurrentTimeStr(): string {
   return new Date(Date.now()).toTimeString().slice(0, 5);
 }
 
