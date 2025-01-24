@@ -1,4 +1,3 @@
-import { useParams } from "react-router";
 import SearchHistory from "./SearchHistory";
 import SearchCity from "./SearchCity";
 import { Box, Container } from "@mui/material";
@@ -6,9 +5,10 @@ import CurrentWeather from "./CurrentWeather";
 import FavoriteCities from "./FavoriteCities";
 import ForecastContainer from "./Forecast";
 import NoCity from "./NoCity";
+import { useCity } from "@hooks";
 
 function Home() {
-  const { city } = useParams();
+  const city = useCity();
 
   return (
     <Container maxWidth="md">
@@ -28,10 +28,10 @@ function Home() {
           width: 760,
         }}
       >
-        {city ? <CurrentWeather city={city} /> : <NoCity />}
+        {city ? <CurrentWeather city={city.name} /> : <NoCity />}
         <FavoriteCities />
       </Box>
-      {city && <ForecastContainer city={city} />}
+      {city && <ForecastContainer city={city.name} />}
     </Container>
   );
 }

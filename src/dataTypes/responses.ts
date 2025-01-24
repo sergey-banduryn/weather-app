@@ -1,11 +1,11 @@
- enum WeatherState {
-  Clouds = 'Clouds',
-  Clear = 'Clear',
-  Snow = 'Snow',
-  Drizzle = 'Drizzle',
-  Rain = 'Rain',
-  Thunderstorm = 'Thunderstorm',
-  Atmosphere = 'Atmosphere',
+enum WeatherState {
+  Clouds = "Clouds",
+  Clear = "Clear",
+  Snow = "Snow",
+  Drizzle = "Drizzle",
+  Rain = "Rain",
+  Thunderstorm = "Thunderstorm",
+  Atmosphere = "Atmosphere",
 }
 
 interface IWeather {
@@ -94,4 +94,13 @@ export interface IWeatherResponse {
   id: number;
   name: string;
   cod: number;
+}
+
+export interface IGeocodingToCityResponse {
+  name: string;
+  local_names: any;
+  lat: number;
+  lon: number;
+  country: string;
+  state: string;
 }
