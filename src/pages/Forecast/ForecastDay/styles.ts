@@ -3,21 +3,21 @@ export const styles = {
     width: 120,
     p: 2,
     borderRadius: 4,
-    cursor: "pointer",
-    textAlign: "center",
+    cursor: 'pointer',
+    textAlign: 'center',
   },
   capitalize: {
-    textTransform: "capitalize",
+    textTransform: 'capitalize',
   },
   minMaxBox: {
-    display: "flex",
-    justifyContent: "space-around",
+    display: 'flex',
+    justifyContent: 'space-around',
   },
   minMaxTitle: {
     fontSize: 12,
-    textAlign: "center",
+    textAlign: 'center',
   },
   minMaxValue: {
-    textAlign: "center",
+    textAlign: 'center',
   },
 } as const;

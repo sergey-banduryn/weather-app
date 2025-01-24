@@ -1,9 +1,9 @@
-import { Box } from "@mui/material";
-import { useState } from "react";
-import ForecastDay from "./ForecastDay";
-import ForecastHours from "./ForecastHours";
-import { getMaxTempForDay, getMinTempForDay } from "@helpers";
-import { IForecastDays } from "@dataTypes";
+import { Box } from '@mui/material';
+import { useState } from 'react';
+import ForecastDay from './ForecastDay';
+import ForecastHours from './ForecastHours';
+import { getMaxTempForDay, getMinTempForDay } from '@helpers';
+import { IForecastDays } from '@dataTypes';
 
 interface IForecastDaysProps {
   data: IForecastDays[];
@@ -37,7 +37,7 @@ function ForecastDays({ data }: IForecastDaysProps) {
     <>
       <Box
         sx={{
-          display: "flex",
+          display: 'flex',
           gap: 1,
         }}
       >

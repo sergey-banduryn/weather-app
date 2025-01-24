@@ -1,7 +1,7 @@
-import { Box } from "@mui/material";
-import FavoriteCity from "./FavoriteCity";
-import { useStore } from "@store";
-import { styles } from "./styles";
+import { Box } from '@mui/material';
+import FavoriteCity from './FavoriteCity';
+import { useStore } from '@store';
+import { styles } from './styles';
 
 function FavoriteCities() {
   const { favoriteCities, toggleFavorite } = useStore();

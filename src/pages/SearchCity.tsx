@@ -1,10 +1,10 @@
-import { useState } from "react";
-import { Box, IconButton, TextField } from "@mui/material";
-import { useNavigate } from "react-router";
-import SearchIcon from "@mui/icons-material/Search";
+import { useState } from 'react';
+import { Box, IconButton, TextField } from '@mui/material';
+import { useNavigate } from 'react-router';
+import SearchIcon from '@mui/icons-material/Search';
 
 function SearchCity() {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState('');
   const navigate = useNavigate();
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -13,7 +13,7 @@ function SearchCity() {
 
   const onClick = () => {
     navigate(`/${value}`);
-    setValue("");
+    setValue('');
   };
 
   return (

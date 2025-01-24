@@ -1,6 +1,6 @@
-import { IStore } from "@dataTypes";
-import { create } from "zustand";
-import { persist } from "zustand/middleware";
+import { IStore } from '@dataTypes';
+import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 
 const useStore = create<IStore>()(
   persist(
@@ -22,8 +22,8 @@ const useStore = create<IStore>()(
           return { favoriteCities: Array.from(set) };
         }),
     }),
-    { name: "store" }
-  )
+    { name: 'store' },
+  ),
 );
 
 export { useStore };

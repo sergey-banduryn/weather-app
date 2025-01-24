@@ -1,10 +1,10 @@
-import { Box, Typography } from "@mui/material";
-import FavoriteBtn from "@components/FavoriteBtn/FavoriteBtn";
-import { useQuery } from "@tanstack/react-query";
-import { fetchWeather } from "@api";
-import { formatWeatherData } from "@helpers";
-import { WeatherStateIcon } from "@components";
-import { styles } from "./styles";
+import { Box, Typography } from '@mui/material';
+import FavoriteBtn from '@components/FavoriteBtn/FavoriteBtn';
+import { useQuery } from '@tanstack/react-query';
+import { fetchWeather } from '@api';
+import { formatWeatherData } from '@helpers';
+import { WeatherStateIcon } from '@components';
+import { styles } from './styles';
 
 interface IFavoriteCityProps {
   city: string;
@@ -18,7 +18,7 @@ function FavoriteCity({
   toggleFavorite,
 }: IFavoriteCityProps) {
   const { data, isSuccess } = useQuery({
-    queryKey: ["fetchWeather", city],
+    queryKey: ['fetchWeather', city],
     queryFn: () => fetchWeather(city),
     enabled: !!city?.length,
   });

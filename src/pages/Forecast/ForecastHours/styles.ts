@@ -1,17 +1,17 @@
 export const styles = {
   box: {
-    display: "flex",
-    width: "min-content",
+    display: 'flex',
+    width: 'min-content',
     my: 2,
     p: 2,
     borderRadius: 4,
-    bgcolor: "lightseagreen",
+    bgcolor: 'lightseagreen',
   },
   titles: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    width: "100px",
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    width: '100px',
   },
   timeTitle: {
     // bgcolor: "lightgray",

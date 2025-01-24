@@ -1,11 +1,11 @@
 enum WeatherState {
-  Clouds = "Clouds",
-  Clear = "Clear",
-  Snow = "Snow",
-  Drizzle = "Drizzle",
-  Rain = "Rain",
-  Thunderstorm = "Thunderstorm",
-  Atmosphere = "Atmosphere",
+  Clouds = 'Clouds',
+  Clear = 'Clear',
+  Snow = 'Snow',
+  Drizzle = 'Drizzle',
+  Rain = 'Rain',
+  Thunderstorm = 'Thunderstorm',
+  Atmosphere = 'Atmosphere',
 }
 
 interface IWeather {

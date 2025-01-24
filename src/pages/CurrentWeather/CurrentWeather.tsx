@@ -1,15 +1,15 @@
-import FavoriteBtn from "@components/FavoriteBtn/FavoriteBtn";
-import { Box, Skeleton, Stack, Typography } from "@mui/material";
-import { styles } from "./styles";
-import { formatWeatherData } from "@helpers";
-import { fetchWeather } from "@api";
-import { useStore } from "@store";
-import { useQuery } from "@tanstack/react-query";
-import { useEffect } from "react";
-import { toast } from "react-toastify";
-import { WeatherStateIcon } from "@components";
-import BackgroundImageByWeather from "@components/BackgroundImageByWeather";
-import NorthIcon from "@mui/icons-material/North";
+import FavoriteBtn from '@components/FavoriteBtn/FavoriteBtn';
+import { Box, Skeleton, Stack, Typography } from '@mui/material';
+import { styles } from './styles';
+import { formatWeatherData } from '@helpers';
+import { fetchWeather } from '@api';
+import { useStore } from '@store';
+import { useQuery } from '@tanstack/react-query';
+import { useEffect } from 'react';
+import { toast } from 'react-toastify';
+import { WeatherStateIcon } from '@components';
+import BackgroundImageByWeather from '@components/BackgroundImageByWeather';
+import NorthIcon from '@mui/icons-material/North';
 
 interface ICurrentWeatherProps {
   city: string;
@@ -19,7 +19,7 @@ function CurrentWeather({ city }: ICurrentWeatherProps) {
   const { addSearchedCity, favoriteCities, toggleFavorite } = useStore();
 
   const { isPending, isError, isSuccess, data, error } = useQuery({
-    queryKey: ["fetchWeather", city],
+    queryKey: ['fetchWeather', city],
     queryFn: () => fetchWeather(city),
   });
 

@@ -4,16 +4,16 @@ import {
   IFormattedForecastData,
   IFormattedWeatherData,
   IWeatherResponse,
-} from "@dataTypes";
+} from '@dataTypes';
 
 export function formatWeatherData(
-  data: IWeatherResponse
+  data: IWeatherResponse,
 ): IFormattedWeatherData {
   let name, humidity, temp, speed, deg, state;
   name = data.name;
   temp = Math.round(data.main.temp);
-  temp = temp > 0 ? "+" + temp + "°" : temp + "°";
-  humidity = data.main.humidity + "%";
+  temp = temp > 0 ? '+' + temp + '°' : temp + '°';
+  humidity = data.main.humidity + '%';
   speed = data.wind.speed.toFixed(1);
   deg = data.wind.deg;
   state = data.weather[0].main;
@@ -22,7 +22,7 @@ export function formatWeatherData(
 }
 
 export function getForecastDays(
-  data: IForecastItemResponse[]
+  data: IForecastItemResponse[],
 ): IForecastDays[] {
   const hours = data.map((hour) => {
     return {
@@ -46,11 +46,11 @@ export function getForecastDays(
 }
 
 export function formatForecastData(
-  data: IForecastItemResponse
+  data: IForecastItemResponse,
 ): IFormattedForecastData {
   let humidity, temp, speed, state;
   temp = Math.round(data.main.temp);
-  temp = temp > 0 ? "+" + temp + "°" : temp + "°";
+  temp = temp > 0 ? '+' + temp + '°' : temp + '°';
   humidity = data.main.humidity;
   speed = data.wind.speed.toFixed(1);
   state = data.weather[0].main;
@@ -64,21 +64,21 @@ export function getCurrentTimeStr(): string {
 
 export function formatTemp(temp: number): string {
   let tempNum = Math.round(temp);
-  let tempStr = tempNum > 0 ? "+" + tempNum + "°" : tempNum + "°";
+  let tempStr = tempNum > 0 ? '+' + tempNum + '°' : tempNum + '°';
   return tempStr;
 }
 
 export function getWeekdayName(dateString: string): string {
-  let options: Intl.DateTimeFormatOptions = { weekday: "long" };
+  let options: Intl.DateTimeFormatOptions = { weekday: 'long' };
   return new Intl.DateTimeFormat(undefined, options).format(
-    new Date(Date.parse(dateString))
+    new Date(Date.parse(dateString)),
   );
 }
 
 export function getMonthName(dateString: string): string {
-  let options: Intl.DateTimeFormatOptions = { month: "long" };
+  let options: Intl.DateTimeFormatOptions = { month: 'long' };
   return new Intl.DateTimeFormat(undefined, options).format(
-    new Date(Date.parse(dateString))
+    new Date(Date.parse(dateString)),
   );
 }
 

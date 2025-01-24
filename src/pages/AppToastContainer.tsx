@@ -1,4 +1,4 @@
-import { Slide, ToastContainer } from "react-toastify";
+import { Slide, ToastContainer } from 'react-toastify';
 
 export default function AppToastContainer() {
   return (

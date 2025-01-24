@@ -1,7 +1,7 @@
-import { Box } from "@mui/material";
-import { skyImagesByState, skyStatePath } from "./constants";
-import { WeatherState } from "@enums";
-import { styles } from "./styles";
+import { Box } from '@mui/material';
+import { skyImagesByState, skyStatePath } from './constants';
+import { WeatherState } from '@enums';
+import { styles } from './styles';
 
 interface IWeatherStateIconProps {
   state: WeatherState;

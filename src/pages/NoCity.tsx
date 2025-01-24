@@ -1,19 +1,19 @@
-import { Box, Typography } from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
+import { Box, Typography } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
 
 function NoCity() {
   return (
     <Box
       sx={{
-        position: "relative",
+        position: 'relative',
         width: 250,
         p: 3,
         borderRadius: 4,
-        bgcolor: "#ffedd3",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
+        bgcolor: '#ffedd3',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
       }}
     >
       <Box>
@@ -21,7 +21,7 @@ function NoCity() {
           sx={{
             width: 70,
             height: 70,
-            color: "grey",
+            color: 'grey',
           }}
         />
       </Box>

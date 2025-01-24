@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { toast } from "react-toastify";
+import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 interface IuseGeolocationCoordsReturn {
   coords: null | GeolocationCoordinates;
@@ -13,7 +13,7 @@ function useGeolocationCoords(): IuseGeolocationCoordsReturn {
   useEffect(() => {
     if (!navigator.geolocation) {
       setIsDone(true);
-      toast.error("Geolocation is not supported by your browser");
+      toast.error('Geolocation is not supported by your browser');
       return;
     }
 
@@ -25,7 +25,7 @@ function useGeolocationCoords(): IuseGeolocationCoordsReturn {
       () => {
         setIsDone(true);
         toast.error("You don't have a permission to use geolocation");
-      }
+      },
     );
   }, []);
 

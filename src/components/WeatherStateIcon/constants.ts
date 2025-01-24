@@ -1,4 +1,4 @@
-import { WeatherState } from "@enums";
+import { WeatherState } from '@enums';
 
 export const skyStatePath = '/weather-state-icons/';
 
@@ -11,4 +11,3 @@ export const skyImagesByState = {
   [WeatherState.Thunderstorm]: 'thunderstorm.png',
   [WeatherState.Atmosphere]: 'atmosphere.png',
 };
-

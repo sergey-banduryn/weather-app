@@ -1,7 +1,7 @@
-import { WeatherState } from "@enums";
-import { IForecastItemResponse } from "./responses";
+import { WeatherState } from '@enums';
+import { IForecastItemResponse } from './responses';
 
-export * from "./responses";
+export * from './responses';
 
 export interface IStore {
   searchedCities: string[];

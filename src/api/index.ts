@@ -2,10 +2,10 @@ import {
   IForecastResponse,
   IGeocodingToCityResponse,
   IWeatherResponse,
-} from "@dataTypes/responses";
+} from '@dataTypes/responses';
 
-const APPID = "91ec443af67ff628c4ca8788c43afa94";
-const baseURL = "http://api.openweathermap.org";
+const APPID = '91ec443af67ff628c4ca8788c43afa94';
+const baseURL = 'http://api.openweathermap.org';
 
 export async function fetchWeather(city: string): Promise<IWeatherResponse> {
   const url = `${baseURL}/data/2.5/weather?q=${city}&APPID=${APPID}&units=metric`;
@@ -13,7 +13,7 @@ export async function fetchWeather(city: string): Promise<IWeatherResponse> {
   const response = await fetch(url);
 
   if (!response.ok) {
-    throw new Error("Network response was not ok");
+    throw new Error('Network response was not ok');
   }
 
   return response.json();
@@ -25,14 +25,14 @@ export async function fetchForecast(city: string): Promise<IForecastResponse> {
   const response = await fetch(url);
 
   if (!response.ok) {
-    throw new Error("Network response was not ok");
+    throw new Error('Network response was not ok');
   }
 
   return response.json();
 }
 
 export async function fetchGeocodingToCity(
-  coords: GeolocationCoordinates
+  coords: GeolocationCoordinates,
 ): Promise<IGeocodingToCityResponse[]> {
   const { latitude, longitude } = coords;
   const url = `${baseURL}/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=${5}&appid=${APPID}`;
@@ -40,7 +40,7 @@ export async function fetchGeocodingToCity(
   const response = await fetch(url);
 
   if (!response.ok) {
-    throw new Error("Network response was not ok");
+    throw new Error('Network response was not ok');
   }
 
   return response.json();

@@ -1,11 +1,11 @@
-import SearchHistory from "./SearchHistory";
-import SearchCity from "./SearchCity";
-import { Box, Container } from "@mui/material";
-import CurrentWeather from "./CurrentWeather";
-import FavoriteCities from "./FavoriteCities";
-import ForecastContainer from "./Forecast";
-import NoCity from "./NoCity";
-import { useCity } from "@hooks";
+import SearchHistory from './SearchHistory';
+import SearchCity from './SearchCity';
+import { Box, Container } from '@mui/material';
+import CurrentWeather from './CurrentWeather';
+import FavoriteCities from './FavoriteCities';
+import ForecastContainer from './Forecast';
+import NoCity from './NoCity';
+import { useCity } from '@hooks';
 
 function Home() {
   const city = useCity();
@@ -22,8 +22,8 @@ function Home() {
       </Box>
       <Box
         sx={{
-          display: "flex",
-          justifyContent: "space-between",
+          display: 'flex',
+          justifyContent: 'space-between',
           my: 2,
           width: 760,
         }}

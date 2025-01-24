@@ -1,12 +1,12 @@
 export const styles = {
   box: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
   },
   time: {
     px: 2,
-    bgcolor: "lightgray",
+    bgcolor: 'lightgray',
   },
   stateIcon: {
     width: 24,

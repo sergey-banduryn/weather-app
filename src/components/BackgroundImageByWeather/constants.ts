@@ -1,4 +1,4 @@
-import { WeatherState } from "@enums";
+import { WeatherState } from '@enums';
 
 export const cardBackgroundPath = '/weather-card-background/';
 

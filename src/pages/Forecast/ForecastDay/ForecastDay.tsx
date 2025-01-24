@@ -1,6 +1,6 @@
-import { Box, Typography } from "@mui/material";
-import { formatTemp, getMonthName, getWeekdayName } from "@helpers";
-import { styles } from "./styles";
+import { Box, Typography } from '@mui/material';
+import { formatTemp, getMonthName, getWeekdayName } from '@helpers';
+import { styles } from './styles';
 
 interface IForecastDayProps {
   d_txt: string;
@@ -28,7 +28,7 @@ function ForecastDay({
     <Box
       sx={{
         ...styles.box,
-        bgcolor: isActive ? "burlywood" : "bisque",
+        bgcolor: isActive ? 'burlywood' : 'bisque',
       }}
       onClick={onClick}
     >

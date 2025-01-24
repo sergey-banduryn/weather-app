@@ -1,10 +1,10 @@
-import { useQuery } from "@tanstack/react-query";
-import { fetchForecast } from "@api";
-import { getForecastDays } from "@helpers";
-import ForecastDays from "./ForecastDays";
-import { Box, CircularProgress } from "@mui/material";
-import { useEffect } from "react";
-import { toast } from "react-toastify";
+import { useQuery } from '@tanstack/react-query';
+import { fetchForecast } from '@api';
+import { getForecastDays } from '@helpers';
+import ForecastDays from './ForecastDays';
+import { Box, CircularProgress } from '@mui/material';
+import { useEffect } from 'react';
+import { toast } from 'react-toastify';
 
 interface IForecastContainerProps {
   city: string;
@@ -12,7 +12,7 @@ interface IForecastContainerProps {
 
 function ForecastContainer({ city }: IForecastContainerProps) {
   const { isPending, data, isError, error } = useQuery({
-    queryKey: ["fetchForecast", city],
+    queryKey: ['fetchForecast', city],
     queryFn: () => fetchForecast(city),
   });
 
@@ -28,9 +28,9 @@ function ForecastContainer({ city }: IForecastContainerProps) {
       {isPending && (
         <Box
           sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
             height: 310,
           }}
         >

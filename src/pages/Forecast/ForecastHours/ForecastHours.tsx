@@ -1,8 +1,8 @@
-import { Box, Typography } from "@mui/material";
-import ForecastHour from "./ForecastHour";
-import { formatForecastData } from "@helpers";
-import { styles } from "./styles";
-import { IForecastItemResponse } from "@dataTypes";
+import { Box, Typography } from '@mui/material';
+import ForecastHour from './ForecastHour';
+import { formatForecastData } from '@helpers';
+import { styles } from './styles';
+import { IForecastItemResponse } from '@dataTypes';
 
 interface IForecastHoursProps {
   hours: IForecastItemResponse[];
