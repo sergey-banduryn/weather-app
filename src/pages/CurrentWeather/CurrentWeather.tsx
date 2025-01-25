@@ -27,11 +27,11 @@ function CurrentWeather({ city }: ICurrentWeatherProps) {
     if (isSuccess) {
       addSearchedCity(data.name);
     }
-  }, [city, isSuccess]);
+  }, [city, isSuccess, addSearchedCity, data?.name]);
 
   useEffect(() => {
     if (isError) toast(error.message);
-  }, [isError]);
+  }, [isError, error]);
 
   let formattedData;
   if (data) formattedData = formatWeatherData(data);

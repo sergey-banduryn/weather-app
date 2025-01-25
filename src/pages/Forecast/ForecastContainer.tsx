@@ -18,7 +18,7 @@ function ForecastContainer({ city }: IForecastContainerProps) {
 
   useEffect(() => {
     if (isError) toast(error.message);
-  }, [isError]);
+  }, [isError, error]);
 
   let forecastDays;
   if (data) forecastDays = getForecastDays(data.list);

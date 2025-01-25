@@ -98,7 +98,9 @@ export interface IWeatherResponse {
 
 export interface IGeocodingToCityResponse {
   name: string;
-  local_names: any;
+  local_names: {
+    [key: string]: string;
+  };
   lat: number;
   lon: number;
   country: string;

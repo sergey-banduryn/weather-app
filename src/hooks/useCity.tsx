@@ -14,7 +14,6 @@ function useCity(): IuseCityReturn {
     queryKey: ['fetchGeocodingToCity', coords?.latitude, coords?.longitude],
     queryFn: coords ? () => fetchGeocodingToCity(coords) : skipToken,
   });
-
   if (cityFromURL) return { name: cityFromURL };
 
   if (data) return { name: data[0].name };

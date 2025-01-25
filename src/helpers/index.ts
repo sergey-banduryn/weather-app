@@ -9,14 +9,14 @@ import {
 export function formatWeatherData(
   data: IWeatherResponse,
 ): IFormattedWeatherData {
-  let name, humidity, temp, speed, deg, state;
-  name = data.name;
+  const name = data.name;
+  let temp;
   temp = Math.round(data.main.temp);
   temp = temp > 0 ? '+' + temp + '°' : temp + '°';
-  humidity = data.main.humidity + '%';
-  speed = data.wind.speed.toFixed(1);
-  deg = data.wind.deg;
-  state = data.weather[0].main;
+  const humidity = data.main.humidity + '%';
+  const speed = data.wind.speed.toFixed(1);
+  const deg = data.wind.deg;
+  const state = data.weather[0].main;
 
   return { name, humidity, temp, speed, deg, state };
 }
@@ -48,12 +48,12 @@ export function getForecastDays(
 export function formatForecastData(
   data: IForecastItemResponse,
 ): IFormattedForecastData {
-  let humidity, temp, speed, state;
+  let temp;
   temp = Math.round(data.main.temp);
   temp = temp > 0 ? '+' + temp + '°' : temp + '°';
-  humidity = data.main.humidity;
-  speed = data.wind.speed.toFixed(1);
-  state = data.weather[0].main;
+  const humidity = data.main.humidity;
+  const speed = data.wind.speed.toFixed(1);
+  const state = data.weather[0].main;
 
   return { humidity, temp, speed, state };
 }
@@ -63,20 +63,20 @@ export function getCurrentTimeStr(): string {
 }
 
 export function formatTemp(temp: number): string {
-  let tempNum = Math.round(temp);
-  let tempStr = tempNum > 0 ? '+' + tempNum + '°' : tempNum + '°';
+  const tempNum = Math.round(temp);
+  const tempStr = tempNum > 0 ? '+' + tempNum + '°' : tempNum + '°';
   return tempStr;
 }
 
 export function getWeekdayName(dateString: string): string {
-  let options: Intl.DateTimeFormatOptions = { weekday: 'long' };
+  const options: Intl.DateTimeFormatOptions = { weekday: 'long' };
   return new Intl.DateTimeFormat(undefined, options).format(
     new Date(Date.parse(dateString)),
   );
 }
 
 export function getMonthName(dateString: string): string {
-  let options: Intl.DateTimeFormatOptions = { month: 'long' };
+  const options: Intl.DateTimeFormatOptions = { month: 'long' };
   return new Intl.DateTimeFormat(undefined, options).format(
     new Date(Date.parse(dateString)),
   );
