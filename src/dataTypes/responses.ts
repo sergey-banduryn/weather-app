@@ -1,12 +1,4 @@
-enum WeatherState {
-  Clouds = 'Clouds',
-  Clear = 'Clear',
-  Snow = 'Snow',
-  Drizzle = 'Drizzle',
-  Rain = 'Rain',
-  Thunderstorm = 'Thunderstorm',
-  Atmosphere = 'Atmosphere',
-}
+import { WeatherState } from '@enums';
 
 interface IWeather {
   id: number;
@@ -98,9 +90,7 @@ export interface IWeatherResponse {
 
 export interface IGeocodingToCityResponse {
   name: string;
-  local_names: {
-    [key: string]: string;
-  };
+  local_names: Record<string, string>;
   lat: number;
   lon: number;
   country: string;

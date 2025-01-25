@@ -8,11 +8,22 @@ export default tseslint.config(
   { ignores: ['dist'] },
   {
     // extends: [js.configs.recommended, ...tseslint.configs.recommended],
-    extends: [js.configs.recommended, ...tseslint.configs.strict],
+    extends: [
+      js.configs.recommended,
+      tseslint.configs.strict,
+      tseslint.configs.stylistic,
+      // tseslint.configs.strictTypeChecked,
+      // tseslint.configs.stylisticTypeChecked,
+    ],
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
+      // parser: '@typescript-eslint/parser',
+      parserOptions: {
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
+      },
     },
     plugins: {
       'react-hooks': reactHooks,
