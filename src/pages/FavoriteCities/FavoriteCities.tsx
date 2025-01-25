@@ -8,7 +8,9 @@ function FavoriteCities() {
 
   const cities = [...favoriteCities].reverse().map((city) => {
     const isFavorite = favoriteCities.includes(city);
-    const toggleFavoriteCity = () => toggleFavorite(city);
+    const toggleFavoriteCity = () => {
+      toggleFavorite(city);
+    };
 
     return (
       <FavoriteCity

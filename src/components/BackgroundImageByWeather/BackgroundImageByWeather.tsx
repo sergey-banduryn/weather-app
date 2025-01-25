@@ -7,10 +7,7 @@ interface IBackgroundImageByWeatherProps {
 }
 
 function BackgroundImageByWeather({ state }: IBackgroundImageByWeatherProps) {
-  const backgroundImageUrl =
-    cardBackgroundPath +
-    (cardBackgroundStatus[state] ??
-      cardBackgroundStatus[WeatherState.Atmosphere]);
+  const backgroundImageUrl = cardBackgroundPath + cardBackgroundStatus[state];
 
   return <img src={backgroundImageUrl} style={styles.image} alt="Background" />;
 }

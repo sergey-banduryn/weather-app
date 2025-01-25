@@ -20,7 +20,6 @@ function FavoriteCity({
   const { data, isSuccess } = useQuery({
     queryKey: ['fetchWeather', city],
     queryFn: () => fetchWeather(city),
-    enabled: !!city?.length,
   });
 
   let formattedData;
@@ -33,7 +32,7 @@ function FavoriteCity({
       <Typography>{formattedData?.temp}</Typography>
       {formattedData && (
         <Box sx={styles.stateIcon}>
-          <WeatherStateIcon state={formattedData?.state} />
+          <WeatherStateIcon state={formattedData.state} />
         </Box>
       )}
       <FavoriteBtn {...{ isFavorite, toggleFavorite }} />

@@ -17,7 +17,9 @@ function ForecastDays({ data }: IForecastDaysProps) {
   const days = data.map((day) => {
     const { d_txt } = day;
 
-    const onClick = () => setDate(d_txt);
+    const onClick = () => {
+      setDate(d_txt);
+    };
     const isActive = d_txt === date;
 
     const min = getMinTempForDay(day.hours);

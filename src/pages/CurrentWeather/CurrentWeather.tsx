@@ -37,7 +37,9 @@ function CurrentWeather({ city }: ICurrentWeatherProps) {
   if (data) formattedData = formatWeatherData(data);
 
   const isFavorite = favoriteCities.includes(city);
-  const toggleFavoriteCity = () => toggleFavorite(city);
+  const toggleFavoriteCity = () => {
+    toggleFavorite(city);
+  };
 
   return (
     <Box sx={styles.box}>
@@ -56,25 +58,28 @@ function CurrentWeather({ city }: ICurrentWeatherProps) {
       )}
       {isSuccess && formattedData && (
         <>
-          <BackgroundImageByWeather state={formattedData?.state} />
+          <BackgroundImageByWeather state={formattedData.state} />
           <Typography variant="h5" sx={styles.text}>
-            {formattedData?.temp}
+            {formattedData.temp}
           </Typography>
           <Typography variant="h5" sx={styles.text}>
-            {formattedData?.humidity}
+            {formattedData.humidity}
           </Typography>
           <Box sx={styles.wind}>
             <Box
-              sx={[styles.arrowWrap, { rotate: `${formattedData?.deg}deg` }]}
+              sx={[
+                styles.arrowWrap,
+                { rotate: `${String(formattedData.deg)}deg` },
+              ]}
             >
               <NorthIcon sx={styles.arrow} />
             </Box>
             <Typography variant="h5" sx={styles.text}>
-              {formattedData?.speed}
+              {formattedData.speed}
             </Typography>
           </Box>
           <Box sx={styles.stateIcon}>
-            <WeatherStateIcon state={formattedData?.state} />
+            <WeatherStateIcon state={formattedData.state} />
           </Box>
         </>
       )}

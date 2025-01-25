@@ -16,7 +16,7 @@ export async function fetchWeather(city: string): Promise<IWeatherResponse> {
     throw new Error('Network response was not ok');
   }
 
-  return response.json();
+  return response.json() as Promise<IWeatherResponse>;
 }
 
 export async function fetchForecast(city: string): Promise<IForecastResponse> {
@@ -28,14 +28,15 @@ export async function fetchForecast(city: string): Promise<IForecastResponse> {
     throw new Error('Network response was not ok');
   }
 
-  return response.json();
+  return response.json() as Promise<IForecastResponse>;
 }
 
 export async function fetchGeocodingToCity(
   coords: GeolocationCoordinates,
 ): Promise<IGeocodingToCityResponse[]> {
   const { latitude, longitude } = coords;
-  const url = `${baseURL}/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=${5}&appid=${APPID}`;
+  const limit = 5;
+  const url = `${baseURL}/geo/1.0/reverse?lat=${String(latitude)}&lon=${String(longitude)}&limit=${String(limit)}&appid=${APPID}`;
 
   const response = await fetch(url);
 
@@ -43,5 +44,5 @@ export async function fetchGeocodingToCity(
     throw new Error('Network response was not ok');
   }
 
-  return response.json();
+  return response.json() as Promise<IGeocodingToCityResponse[]>;
 }

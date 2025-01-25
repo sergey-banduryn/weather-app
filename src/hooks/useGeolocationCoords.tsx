@@ -11,12 +11,6 @@ function useGeolocationCoords(): IuseGeolocationCoordsReturn {
   const [isDone, setIsDone] = useState(false);
 
   useEffect(() => {
-    if (!navigator.geolocation) {
-      setIsDone(true);
-      toast.error('Geolocation is not supported by your browser');
-      return;
-    }
-
     navigator.geolocation.getCurrentPosition(
       (position) => {
         setIsDone(true);

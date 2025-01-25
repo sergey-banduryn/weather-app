@@ -7,19 +7,15 @@ import tseslint from 'typescript-eslint';
 export default tseslint.config(
   { ignores: ['dist'] },
   {
-    // extends: [js.configs.recommended, ...tseslint.configs.recommended],
     extends: [
       js.configs.recommended,
-      tseslint.configs.strict,
-      tseslint.configs.stylistic,
-      // tseslint.configs.strictTypeChecked,
-      // tseslint.configs.stylisticTypeChecked,
+      tseslint.configs.strictTypeChecked,
+      tseslint.configs.stylisticTypeChecked,
     ],
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
-      // parser: '@typescript-eslint/parser',
       parserOptions: {
         projectService: true,
         tsconfigRootDir: import.meta.dirname,
@@ -35,6 +31,7 @@ export default tseslint.config(
         'warn',
         { allowConstantExport: true },
       ],
+      '@typescript-eslint/no-non-null-assertion': 'off',
     },
   },
 );

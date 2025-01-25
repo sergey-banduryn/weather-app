@@ -12,7 +12,7 @@ function SearchCity() {
   };
 
   const onClick = () => {
-    navigate(`/${value}`);
+    void navigate(`/${value}`);
     setValue('');
   };
 

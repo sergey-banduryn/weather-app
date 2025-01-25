@@ -12,8 +12,8 @@ export function formatWeatherData(
   const name = data.name;
   let temp;
   temp = Math.round(data.main.temp);
-  temp = temp > 0 ? '+' + temp + '°' : temp + '°';
-  const humidity = data.main.humidity + '%';
+  temp = temp > 0 ? '+' + String(temp) + '°' : String(temp) + '°';
+  const humidity = String(data.main.humidity) + '%';
   const speed = data.wind.speed.toFixed(1);
   const deg = data.wind.deg;
   const state = data.weather[0].main;
@@ -50,7 +50,7 @@ export function formatForecastData(
 ): IFormattedForecastData {
   let temp;
   temp = Math.round(data.main.temp);
-  temp = temp > 0 ? '+' + temp + '°' : temp + '°';
+  temp = temp > 0 ? '+' + String(temp) + '°' : String(temp) + '°';
   const humidity = data.main.humidity;
   const speed = data.wind.speed.toFixed(1);
   const state = data.weather[0].main;
@@ -64,7 +64,8 @@ export function getCurrentTimeStr(): string {
 
 export function formatTemp(temp: number): string {
   const tempNum = Math.round(temp);
-  const tempStr = tempNum > 0 ? '+' + tempNum + '°' : tempNum + '°';
+  const tempStr =
+    tempNum > 0 ? '+' + String(tempNum) + '°' : String(tempNum) + '°';
   return tempStr;
 }
 

@@ -8,9 +8,7 @@ interface IWeatherStateIconProps {
 }
 
 function WeatherStateIcon({ state }: IWeatherStateIconProps) {
-  const url =
-    skyStatePath +
-    (skyImagesByState[state] ?? skyImagesByState[WeatherState.Atmosphere]);
+  const url = skyStatePath + skyImagesByState[state];
 
   return (
     <Box>
