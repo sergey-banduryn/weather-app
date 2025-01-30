@@ -2,12 +2,12 @@ import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
 interface IuseGeolocationCoordsReturn {
-  coords: null | GeolocationCoordinates;
+  coords: undefined | GeolocationCoordinates;
   isDone: boolean;
 }
 
 function useGeolocationCoords(): IuseGeolocationCoordsReturn {
-  const [coords, setCoords] = useState<null | GeolocationCoordinates>(null);
+  const [coords, setCoords] = useState<GeolocationCoordinates>();
   const [isDone, setIsDone] = useState(false);
 
   useEffect(() => {

@@ -33,7 +33,7 @@ export function getForecastDays(
 
   const set = new Set(hours.map((hour) => hour.d_txt));
 
-  const days = Array.from(set).map((d_txt) => {
+  const days = [...set].map((d_txt) => {
     return {
       d_txt,
       hours: hours.filter((hour) => {
@@ -84,19 +84,23 @@ export function getMonthName(dateString: string): string {
 }
 
 export function getMinTempForDay(hours: IForecastItemResponse[]): number {
-  if (!hours.length) return 0;
+  if (hours.length === 0) return 0;
 
-  return hours
-    .map((hour) => Math.round(hour.main.temp))
-    // eslint-disable-next-line sonarjs/reduce-initial-value
-    .reduce((acc, val) => Math.min(acc, val));
+  return (
+    hours
+      .map((hour) => Math.round(hour.main.temp))
+      // eslint-disable-next-line sonarjs/reduce-initial-value
+      .reduce((acc, val) => Math.min(acc, val))
+  );
 }
 
 export function getMaxTempForDay(hours: IForecastItemResponse[]): number {
-  if (!hours.length) return 0;
+  if (hours.length === 0) return 0;
 
-  return hours
-    .map((hour) => Math.round(hour.main.temp))
-    // eslint-disable-next-line sonarjs/reduce-initial-value
-    .reduce((acc, val) => Math.max(acc, val));
+  return (
+    hours
+      .map((hour) => Math.round(hour.main.temp))
+      // eslint-disable-next-line sonarjs/reduce-initial-value
+      .reduce((acc, val) => Math.max(acc, val))
+  );
 }

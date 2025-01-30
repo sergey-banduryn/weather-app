@@ -4,6 +4,7 @@ import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 import tseslint from 'typescript-eslint';
 import sonarjs from 'eslint-plugin-sonarjs';
+import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 
 const ignoresConfig = tseslint.config({
   name: 'ignores',
@@ -60,12 +61,24 @@ const sonarjsConfig = tseslint.config({
   },
 });
 
+const unicornConfig = tseslint.config({
+  name: 'unicorn',
+  extends: [eslintPluginUnicorn.configs['flat/recommended']],
+  rules: {
+    'unicorn/filename-case': 'off',
+    'unicorn/prevent-abbreviations': 'off',
+    'unicorn/no-array-reduce': 'off',
+    'unicorn/prefer-query-selector': 'off',
+  },
+});
+
 const config = tseslint.config(
   ...ignoresConfig,
   ...filesConfig,
   ...tseslintConfig,
   ...reactConfig,
   ...sonarjsConfig,
+  ...unicornConfig,
 );
 
 export default config;

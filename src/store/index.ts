@@ -11,7 +11,7 @@ const useStore = create<IStore>()(
           const set = new Set(state.searchedCities);
           set.delete(city);
           set.add(city);
-          return { searchedCities: Array.from(set) };
+          return { searchedCities: [...set] };
         });
       },
       favoriteCities: [],
@@ -20,7 +20,7 @@ const useStore = create<IStore>()(
           const set = new Set(state.favoriteCities);
           if (set.has(city)) set.delete(city);
           else set.add(city);
-          return { favoriteCities: Array.from(set) };
+          return { favoriteCities: [...set] };
         });
       },
     }),
