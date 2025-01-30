@@ -11,8 +11,9 @@ function SearchCity() {
     setValue(event.target.value);
   };
 
-  const onClick = () => {
-    void navigate(`/${value}`);
+  const onClick = (): void => {
+    //  eslint-disable-next-line @typescript-eslint/no-floating-promises
+    navigate(`/${value}`);
     setValue('');
   };
 

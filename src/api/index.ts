@@ -5,7 +5,7 @@ import {
 } from '@dataTypes/responses';
 
 const APPID = '91ec443af67ff628c4ca8788c43afa94';
-const baseURL = 'http://api.openweathermap.org';
+const baseURL = 'https://api.openweathermap.org';
 
 export async function fetchWeather(city: string): Promise<IWeatherResponse> {
   const url = `${baseURL}/data/2.5/weather?q=${city}&APPID=${APPID}&units=metric`;
