@@ -1,6 +1,7 @@
+import { WeatherState } from '@enums';
+
 import { cardBackgroundPath, cardBackgroundStatus } from './constants';
 import { styles } from './styles';
-import { WeatherState } from '@enums';
 
 interface IBackgroundImageByWeatherProps {
   state: WeatherState;

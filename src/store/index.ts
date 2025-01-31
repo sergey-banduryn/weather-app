@@ -1,6 +1,7 @@
-import { IStore } from '@dataTypes';
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+
+import { IStore } from '@dataTypes';
 
 const useStore = create<IStore>()(
   persist(

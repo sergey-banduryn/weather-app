@@ -1,5 +1,7 @@
 import { Box, Typography } from '@mui/material';
+
 import { formatTemp, getMonthName, getWeekdayName } from '@helpers';
+
 import { styles } from './styles';
 
 interface IForecastDayProps {

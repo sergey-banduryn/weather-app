@@ -1,5 +1,5 @@
-import { Box, Typography } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
+import { Box, Typography } from '@mui/material';
 
 function NoCity() {
   return (

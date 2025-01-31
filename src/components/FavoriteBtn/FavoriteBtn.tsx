@@ -1,6 +1,6 @@
-import IconButton from '@mui/material/IconButton';
 import StarIcon from '@mui/icons-material/Star';
 import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
+import IconButton from '@mui/material/IconButton';
 
 interface IFavoriteBtnProps {
   isFavorite: boolean;

@@ -1,7 +1,9 @@
 import { skipToken, useQuery } from '@tanstack/react-query';
-import useGeolocationCoords from './useGeolocationCoords';
-import { fetchGeocodingToCity } from '@api';
 import { useParams } from 'react-router';
+
+import { fetchGeocodingToCity } from '@api';
+
+import useGeolocationCoords from './useGeolocationCoords';
 
 type IuseCityReturn = { name: string } | undefined;
 

@@ -1,6 +1,8 @@
 import { Box } from '@mui/material';
-import FavoriteCity from './FavoriteCity';
+
 import { useStore } from '@store';
+
+import FavoriteCity from './FavoriteCity';
 import { styles } from './styles';
 
 function FavoriteCities() {

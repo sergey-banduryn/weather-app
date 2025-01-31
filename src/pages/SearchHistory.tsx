@@ -1,6 +1,8 @@
-import { Box, Link } from '@mui/material';
-import { useStore } from '@store';
 import { Link as RouterLink } from 'react-router';
+
+import { Box, Link } from '@mui/material';
+
+import { useStore } from '@store';
 
 function SearchHistory() {
   const { searchedCities } = useStore();

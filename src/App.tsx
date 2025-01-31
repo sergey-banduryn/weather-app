@@ -1,8 +1,11 @@
-import { CssBaseline } from '@mui/material';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { BrowserRouter } from 'react-router';
-import AppRouter from './router';
+
+import { CssBaseline } from '@mui/material';
+
 import AppToastContainer from '@pages/AppToastContainer';
+
+import AppRouter from './router';
 
 const queryClient = new QueryClient();
 

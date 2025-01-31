@@ -1,10 +1,13 @@
 import { useQuery } from '@tanstack/react-query';
-import { fetchForecast } from '@api';
-import { getForecastDays } from '@helpers';
-import ForecastDays from './ForecastDays';
-import { Box, CircularProgress } from '@mui/material';
 import { useEffect } from 'react';
 import { toast } from 'react-toastify';
+
+import { Box, CircularProgress } from '@mui/material';
+
+import { fetchForecast } from '@api';
+import { getForecastDays } from '@helpers';
+
+import ForecastDays from './ForecastDays';
 
 interface IForecastContainerProps {
   city: string;

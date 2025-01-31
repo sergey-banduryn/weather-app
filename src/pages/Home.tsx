@@ -1,11 +1,13 @@
-import SearchHistory from './SearchHistory';
-import SearchCity from './SearchCity';
 import { Box, Container } from '@mui/material';
+
+import { useCity } from '@hooks';
+
 import CurrentWeather from './CurrentWeather';
 import FavoriteCities from './FavoriteCities';
 import ForecastContainer from './Forecast';
 import NoCity from './NoCity';
-import { useCity } from '@hooks';
+import SearchCity from './SearchCity';
+import SearchHistory from './SearchHistory';
 
 function Home() {
   const city = useCity();

@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { Box, IconButton, TextField } from '@mui/material';
 import { useNavigate } from 'react-router';
+
 import SearchIcon from '@mui/icons-material/Search';
+import { Box, IconButton, TextField } from '@mui/material';
 
 function SearchCity() {
   const [value, setValue] = useState('');

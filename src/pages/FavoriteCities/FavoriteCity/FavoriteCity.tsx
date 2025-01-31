@@ -1,9 +1,12 @@
-import { Box, Typography } from '@mui/material';
-import FavoriteBtn from '@components/FavoriteBtn/FavoriteBtn';
 import { useQuery } from '@tanstack/react-query';
+
+import { Box, Typography } from '@mui/material';
+
 import { fetchWeather } from '@api';
-import { formatWeatherData } from '@helpers';
 import { WeatherStateIcon } from '@components';
+import FavoriteBtn from '@components/FavoriteBtn/FavoriteBtn';
+import { formatWeatherData } from '@helpers';
+
 import { styles } from './styles';
 
 interface IFavoriteCityProps {

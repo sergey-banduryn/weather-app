@@ -1,6 +1,8 @@
+import { Box, Typography } from '@mui/material';
+
 import { WeatherStateIcon } from '@components';
 import { IFormattedForecastData } from '@dataTypes';
-import { Box, Typography } from '@mui/material';
+
 import { styles } from './styles';
 
 interface IForecastHourProps extends IFormattedForecastData {
