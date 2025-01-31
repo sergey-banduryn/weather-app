@@ -7,18 +7,6 @@ import {
 const APPID = '91ec443af67ff628c4ca8788c43afa94';
 const baseURL = 'https://api.openweathermap.org';
 
-export async function fetchWeather(city: string): Promise<IWeatherResponse> {
-  const url = `${baseURL}/data/2.5/weather?q=${city}&APPID=${APPID}&units=metric`;
-
-  const response = await fetch(url);
-
-  if (!response.ok) {
-    throw new Error('Network response was not ok');
-  }
-
-  return response.json() as Promise<IWeatherResponse>;
-}
-
 export async function fetchForecast(city: string): Promise<IForecastResponse> {
   const url = `${baseURL}/data/2.5/forecast?q=${city}&APPID=${APPID}&units=metric`;
 
@@ -45,4 +33,16 @@ export async function fetchGeocodingToCity(
   }
 
   return response.json() as Promise<IGeocodingToCityResponse[]>;
+}
+
+export async function fetchWeather(city: string): Promise<IWeatherResponse> {
+  const url = `${baseURL}/data/2.5/weather?q=${city}&APPID=${APPID}&units=metric`;
+
+  const response = await fetch(url);
+
+  if (!response.ok) {
+    throw new Error('Network response was not ok');
+  }
+
+  return response.json() as Promise<IWeatherResponse>;
 }

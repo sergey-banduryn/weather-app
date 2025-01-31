@@ -21,9 +21,9 @@ interface ICurrentWeatherProps {
 function CurrentWeather({ city }: ICurrentWeatherProps) {
   const { addSearchedCity, favoriteCities, toggleFavorite } = useStore();
 
-  const { isPending, isError, isSuccess, data, error } = useQuery({
-    queryKey: ['fetchWeather', city],
+  const { data, error, isError, isPending, isSuccess } = useQuery({
     queryFn: () => fetchWeather(city),
+    queryKey: ['fetchWeather', city],
   });
 
   useEffect(() => {
@@ -46,7 +46,7 @@ function CurrentWeather({ city }: ICurrentWeatherProps) {
 
   return (
     <Box sx={styles.box}>
-      <Typography variant="h4" sx={styles.text}>
+      <Typography sx={styles.text} variant="h4">
         {city}
       </Typography>
       <Box sx={styles.favoriteBtn}>
@@ -54,18 +54,18 @@ function CurrentWeather({ city }: ICurrentWeatherProps) {
       </Box>
       {isPending && (
         <Stack spacing={1}>
-          <Skeleton variant="rounded" width={70} height={30} />
-          <Skeleton variant="rounded" width={70} height={30} />
-          <Skeleton variant="rounded" width={70} height={30} />
+          <Skeleton height={30} variant="rounded" width={70} />
+          <Skeleton height={30} variant="rounded" width={70} />
+          <Skeleton height={30} variant="rounded" width={70} />
         </Stack>
       )}
       {isSuccess && formattedData && (
         <>
           <BackgroundImageByWeather state={formattedData.state} />
-          <Typography variant="h5" sx={styles.text}>
+          <Typography sx={styles.text} variant="h5">
             {formattedData.temp}
           </Typography>
-          <Typography variant="h5" sx={styles.text}>
+          <Typography sx={styles.text} variant="h5">
             {formattedData.humidity}
           </Typography>
           <Box sx={styles.wind}>
@@ -77,7 +77,7 @@ function CurrentWeather({ city }: ICurrentWeatherProps) {
             >
               <NorthIcon sx={styles.arrow} />
             </Box>
-            <Typography variant="h5" sx={styles.text}>
+            <Typography sx={styles.text} variant="h5">
               {formattedData.speed}
             </Typography>
           </Box>

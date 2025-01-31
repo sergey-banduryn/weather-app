@@ -1,10 +1,10 @@
 export const styles = {
   box: {
-    width: 120,
-    p: 2,
     borderRadius: 4,
     cursor: 'pointer',
+    p: 2,
     textAlign: 'center',
+    width: 120,
   },
   capitalize: {
     textTransform: 'capitalize',

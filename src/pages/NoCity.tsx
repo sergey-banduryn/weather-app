@@ -5,23 +5,23 @@ function NoCity() {
   return (
     <Box
       sx={{
-        position: 'relative',
-        width: 250,
-        p: 3,
-        borderRadius: 4,
+        alignItems: 'center',
         bgcolor: '#ffedd3',
+        borderRadius: 4,
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        alignItems: 'center',
+        p: 3,
+        position: 'relative',
+        width: 250,
       }}
     >
       <Box>
         <SearchIcon
           sx={{
-            width: 70,
-            height: 70,
             color: 'grey',
+            height: 70,
+            width: 70,
           }}
         />
       </Box>

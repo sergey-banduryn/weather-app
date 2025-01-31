@@ -22,13 +22,13 @@ function SearchCity() {
     <Box>
       <TextField
         id="search"
-        variant="outlined"
-        placeholder="Search city"
-        value={value}
         onChange={onChange}
+        placeholder="Search city"
         size="small"
+        value={value}
+        variant="outlined"
       />
-      <IconButton onClick={onClick} disabled={!value}>
+      <IconButton disabled={!value} onClick={onClick}>
         <SearchIcon />
       </IconButton>
     </Box>

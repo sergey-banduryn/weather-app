@@ -29,12 +29,12 @@ function ForecastDays({ data }: IForecastDaysProps) {
     const max = getMaxTempForDay(day.hours);
 
     const minMaxTemp = {
-      min,
       max,
+      min,
     };
 
     return (
-      <ForecastDay key={d_txt} {...{ d_txt, onClick, isActive, minMaxTemp }} />
+      <ForecastDay key={d_txt} {...{ d_txt, isActive, minMaxTemp, onClick }} />
     );
   });
 

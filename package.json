@@ -44,6 +44,7 @@
     "concurrently": "9.1.2",
     "editorconfig-checker": "6.0.1",
     "eslint": "^9.15.0",
+    "eslint-plugin-perfectionist": "4.7.0",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.14",
     "eslint-plugin-sonarjs": "3.0.1",

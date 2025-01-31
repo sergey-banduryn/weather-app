@@ -14,9 +14,9 @@ interface IForecastContainerProps {
 }
 
 function ForecastContainer({ city }: IForecastContainerProps) {
-  const { isPending, data, isError, error } = useQuery({
-    queryKey: ['fetchForecast', city],
+  const { data, error, isError, isPending } = useQuery({
     queryFn: () => fetchForecast(city),
+    queryKey: ['fetchForecast', city],
   });
 
   useEffect(() => {
@@ -31,16 +31,16 @@ function ForecastContainer({ city }: IForecastContainerProps) {
       {isPending && (
         <Box
           sx={{
-            display: 'flex',
-            justifyContent: 'center',
             alignItems: 'center',
+            display: 'flex',
             height: 310,
+            justifyContent: 'center',
           }}
         >
           <CircularProgress />
         </Box>
       )}
-      {forecastDays && <ForecastDays key={city} data={forecastDays} />}
+      {forecastDays && <ForecastDays data={forecastDays} key={city} />}
     </>
   );
 }

@@ -21,8 +21,8 @@ function FavoriteCity({
   toggleFavorite,
 }: IFavoriteCityProps) {
   const { data, isSuccess } = useQuery({
-    queryKey: ['fetchWeather', city],
     queryFn: () => fetchWeather(city),
+    queryKey: ['fetchWeather', city],
   });
 
   let formattedData;

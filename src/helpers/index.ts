@@ -6,6 +6,26 @@ import {
   IWeatherResponse,
 } from '@dataTypes';
 
+export function formatForecastData(
+  data: IForecastItemResponse,
+): IFormattedForecastData {
+  let temp;
+  temp = Math.round(data.main.temp);
+  temp = temp > 0 ? '+' + String(temp) + '°' : String(temp) + '°';
+  const humidity = data.main.humidity;
+  const speed = data.wind.speed.toFixed(1);
+  const state = data.weather[0].main;
+
+  return { humidity, speed, state, temp };
+}
+
+export function formatTemp(temp: number): string {
+  const tempNum = Math.round(temp);
+  const tempStr =
+    tempNum > 0 ? '+' + String(tempNum) + '°' : String(tempNum) + '°';
+  return tempStr;
+}
+
 export function formatWeatherData(
   data: IWeatherResponse,
 ): IFormattedWeatherData {
@@ -18,7 +38,11 @@ export function formatWeatherData(
   const deg = data.wind.deg;
   const state = data.weather[0].main;
 
-  return { name, humidity, temp, speed, deg, state };
+  return { deg, humidity, name, speed, state, temp };
+}
+
+export function getCurrentTimeStr(): string {
+  return new Date(Date.now()).toTimeString().slice(0, 5);
 }
 
 export function getForecastDays(
@@ -45,41 +69,14 @@ export function getForecastDays(
   return days;
 }
 
-export function formatForecastData(
-  data: IForecastItemResponse,
-): IFormattedForecastData {
-  let temp;
-  temp = Math.round(data.main.temp);
-  temp = temp > 0 ? '+' + String(temp) + '°' : String(temp) + '°';
-  const humidity = data.main.humidity;
-  const speed = data.wind.speed.toFixed(1);
-  const state = data.weather[0].main;
+export function getMaxTempForDay(hours: IForecastItemResponse[]): number {
+  if (hours.length === 0) return 0;
 
-  return { humidity, temp, speed, state };
-}
-
-export function getCurrentTimeStr(): string {
-  return new Date(Date.now()).toTimeString().slice(0, 5);
-}
-
-export function formatTemp(temp: number): string {
-  const tempNum = Math.round(temp);
-  const tempStr =
-    tempNum > 0 ? '+' + String(tempNum) + '°' : String(tempNum) + '°';
-  return tempStr;
-}
-
-export function getWeekdayName(dateString: string): string {
-  const options: Intl.DateTimeFormatOptions = { weekday: 'long' };
-  return new Intl.DateTimeFormat(undefined, options).format(
-    new Date(Date.parse(dateString)),
-  );
-}
-
-export function getMonthName(dateString: string): string {
-  const options: Intl.DateTimeFormatOptions = { month: 'long' };
-  return new Intl.DateTimeFormat(undefined, options).format(
-    new Date(Date.parse(dateString)),
+  return (
+    hours
+      .map((hour) => Math.round(hour.main.temp))
+      // eslint-disable-next-line sonarjs/reduce-initial-value
+      .reduce((acc, val) => Math.max(acc, val))
   );
 }
 
@@ -94,13 +91,16 @@ export function getMinTempForDay(hours: IForecastItemResponse[]): number {
   );
 }
 
-export function getMaxTempForDay(hours: IForecastItemResponse[]): number {
-  if (hours.length === 0) return 0;
+export function getMonthName(dateString: string): string {
+  const options: Intl.DateTimeFormatOptions = { month: 'long' };
+  return new Intl.DateTimeFormat(undefined, options).format(
+    new Date(Date.parse(dateString)),
+  );
+}
 
-  return (
-    hours
-      .map((hour) => Math.round(hour.main.temp))
-      // eslint-disable-next-line sonarjs/reduce-initial-value
-      .reduce((acc, val) => Math.max(acc, val))
+export function getWeekdayName(dateString: string): string {
+  const options: Intl.DateTimeFormatOptions = { weekday: 'long' };
+  return new Intl.DateTimeFormat(undefined, options).format(
+    new Date(Date.parse(dateString)),
   );
 }

@@ -6,7 +6,6 @@ import { IStore } from '@dataTypes';
 const useStore = create<IStore>()(
   persist(
     (set) => ({
-      searchedCities: [],
       addSearchedCity: (city) => {
         set((state) => {
           const set = new Set(state.searchedCities);
@@ -16,6 +15,7 @@ const useStore = create<IStore>()(
         });
       },
       favoriteCities: [],
+      searchedCities: [],
       toggleFavorite: (city) => {
         set((state) => {
           const set = new Set(state.favoriteCities);

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
 interface IuseGeolocationCoordsReturn {
-  coords: undefined | GeolocationCoordinates;
+  coords: GeolocationCoordinates | undefined;
   isDone: boolean;
 }
 

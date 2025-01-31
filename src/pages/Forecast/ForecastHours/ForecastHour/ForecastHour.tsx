@@ -10,11 +10,11 @@ interface IForecastHourProps extends IFormattedForecastData {
 }
 
 function ForecastHour({
-  time,
-  temp,
   humidity,
   speed,
   state,
+  temp,
+  time,
 }: IForecastHourProps) {
   return (
     <Box sx={styles.box}>

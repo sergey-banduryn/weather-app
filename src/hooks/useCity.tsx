@@ -5,7 +5,7 @@ import { fetchGeocodingToCity } from '@api';
 
 import useGeolocationCoords from './useGeolocationCoords';
 
-type IuseCityReturn = { name: string } | undefined;
+type IuseCityReturn = undefined | { name: string };
 
 function useCity(): IuseCityReturn {
   const { city: cityFromURL } = useParams();
@@ -13,8 +13,8 @@ function useCity(): IuseCityReturn {
   const { coords, isDone } = useGeolocationCoords();
 
   const { data } = useQuery({
-    queryKey: ['fetchGeocodingToCity', coords?.latitude, coords?.longitude],
     queryFn: coords ? () => fetchGeocodingToCity(coords) : skipToken,
+    queryKey: ['fetchGeocodingToCity', coords?.latitude, coords?.longitude],
   });
   if (cityFromURL) return { name: cityFromURL };
 

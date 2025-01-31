@@ -9,7 +9,7 @@ function SearchHistory() {
 
   const links = searchedCities.toReversed().map((city) => {
     return (
-      <Link key={city} component={RouterLink} to={`/${city}`}>
+      <Link component={RouterLink} key={city} to={`/${city}`}>
         {city}
       </Link>
     );

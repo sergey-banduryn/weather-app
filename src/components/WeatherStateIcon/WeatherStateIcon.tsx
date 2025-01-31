@@ -14,7 +14,7 @@ function WeatherStateIcon({ state }: IWeatherStateIconProps) {
 
   return (
     <Box>
-      <img src={url} alt="Sky state" style={styles.image} />
+      <img alt="Sky state" src={url} style={styles.image} />
     </Box>
   );
 }

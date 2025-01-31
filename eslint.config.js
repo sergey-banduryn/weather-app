@@ -1,29 +1,29 @@
 import js from '@eslint/js';
-import globals from 'globals';
+import perfectionist from 'eslint-plugin-perfectionist';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
-import tseslint from 'typescript-eslint';
 import sonarjs from 'eslint-plugin-sonarjs';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
+import globals from 'globals';
+import tseslint from 'typescript-eslint';
 
 const ignoresConfig = tseslint.config({
-  name: 'ignores',
   ignores: ['dist'],
+  name: 'ignores',
 });
 
 const filesConfig = tseslint.config({
-  name: 'files',
   files: ['**/*.{ts,tsx}'],
+  name: 'files',
 });
 
 const tseslintConfig = tseslint.config({
-  name: 'tseslint',
-  files: ['**/*.{ts,tsx}'],
   extends: [
     js.configs.recommended,
     tseslint.configs.strictTypeChecked,
     tseslint.configs.stylisticTypeChecked,
   ],
+  files: ['**/*.{ts,tsx}'],
   languageOptions: {
     ecmaVersion: 2020,
     globals: globals.browser,
@@ -32,6 +32,7 @@ const tseslintConfig = tseslint.config({
       tsconfigRootDir: import.meta.dirname,
     },
   },
+  name: 'tseslint',
   rules: {
     '@typescript-eslint/no-non-null-assertion': 'off',
   },
@@ -53,22 +54,30 @@ const reactConfig = tseslint.config({
 });
 
 const sonarjsConfig = tseslint.config({
-  name: 'sonarjs',
   extends: [sonarjs.configs.recommended],
+  name: 'sonarjs',
   rules: {
-    'sonarjs/prefer-read-only-props': 'off',
     'sonarjs/no-intrusive-permissions': 'off',
+    'sonarjs/prefer-read-only-props': 'off',
   },
 });
 
 const unicornConfig = tseslint.config({
-  name: 'unicorn',
   extends: [eslintPluginUnicorn.configs['flat/recommended']],
+  name: 'unicorn',
   rules: {
     'unicorn/filename-case': 'off',
-    'unicorn/prevent-abbreviations': 'off',
     'unicorn/no-array-reduce': 'off',
     'unicorn/prefer-query-selector': 'off',
+    'unicorn/prevent-abbreviations': 'off',
+  },
+});
+
+const perfectionistConfig = tseslint.config({
+  extends: [perfectionist.configs['recommended-natural']],
+  name: 'perfectionist',
+  rules: {
+    'perfectionist/sort-imports': 'off',
   },
 });
 
@@ -79,6 +88,7 @@ const config = tseslint.config(
   ...reactConfig,
   ...sonarjsConfig,
   ...unicornConfig,
+  ...perfectionistConfig,
 );
 
 export default config;

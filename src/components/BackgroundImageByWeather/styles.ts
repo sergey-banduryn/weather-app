@@ -1,16 +1,16 @@
 export const styles = {
   image: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
+    borderRadius: 16,
     bottom: 0,
-    width: '100%',
     height: '100%',
+    left: 0,
     objectFit: 'cover',
-    zIndex: 1,
     opacity: 0.2,
     pointerEvents: 'none',
-    borderRadius: 16,
+    position: 'absolute',
+    right: 0,
+    top: 0,
+    width: '100%',
+    zIndex: 1,
   },
 } as const;

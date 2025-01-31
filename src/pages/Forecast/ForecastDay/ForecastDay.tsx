@@ -6,19 +6,19 @@ import { styles } from './styles';
 
 interface IForecastDayProps {
   d_txt: string;
-  onClick: () => void;
   isActive: boolean;
   minMaxTemp: {
-    min: number;
     max: number;
+    min: number;
   };
+  onClick: () => void;
 }
 
 function ForecastDay({
   d_txt,
-  onClick,
   isActive,
   minMaxTemp,
+  onClick,
 }: IForecastDayProps) {
   const weekdayName = getWeekdayName(d_txt);
   const monthName = getMonthName(d_txt);
@@ -28,17 +28,17 @@ function ForecastDay({
 
   return (
     <Box
+      onClick={onClick}
       sx={{
         ...styles.box,
         bgcolor: isActive ? 'burlywood' : 'bisque',
       }}
-      onClick={onClick}
     >
-      <Typography variant="subtitle2" sx={styles.capitalize}>
+      <Typography sx={styles.capitalize} variant="subtitle2">
         {weekdayName}
       </Typography>
       <Typography variant="h5">{day}</Typography>
-      <Typography variant="subtitle2" sx={styles.capitalize}>
+      <Typography sx={styles.capitalize} variant="subtitle2">
         {monthName}
       </Typography>
       <Box sx={styles.minMaxBox}>

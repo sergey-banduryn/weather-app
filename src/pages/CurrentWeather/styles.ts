@@ -1,10 +1,22 @@
 export const styles = {
+  arrow: {
+    color: 'grey',
+    height: '100%',
+    width: '100%',
+  },
+  arrowWrap: {
+    bgcolor: 'white',
+    borderRadius: '50%',
+    display: 'inline-block',
+    height: 20,
+    width: 20,
+  },
   box: {
+    bgcolor: '#ffedd3',
+    borderRadius: 4,
+    p: 3,
     position: 'relative',
     width: 250,
-    p: 3,
-    borderRadius: 4,
-    bgcolor: '#ffedd3',
   },
   favoriteBtn: {
     position: 'absolute',
@@ -13,11 +25,11 @@ export const styles = {
     zIndex: 2,
   },
   stateIcon: {
-    position: 'absolute',
-    width: 60,
-    height: 60,
-    right: '10%',
     bottom: '10%',
+    height: 60,
+    position: 'absolute',
+    right: '10%',
+    width: 60,
     zIndex: 2,
   },
   text: {
@@ -25,20 +37,8 @@ export const styles = {
     zIndex: 2,
   },
   wind: {
-    display: 'flex',
     alignItems: 'center',
+    display: 'flex',
     gap: 1,
-  },
-  arrowWrap: {
-    display: 'inline-block',
-    width: 20,
-    height: 20,
-    borderRadius: '50%',
-    bgcolor: 'white',
-  },
-  arrow: {
-    width: '100%',
-    height: '100%',
-    color: 'grey',
   },
 } as const;

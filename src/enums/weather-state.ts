@@ -1,9 +1,9 @@
 export enum WeatherState {
-  Clouds = 'Clouds',
+  Atmosphere = 'Atmosphere',
   Clear = 'Clear',
-  Snow = 'Snow',
+  Clouds = 'Clouds',
   Drizzle = 'Drizzle',
   Rain = 'Rain',
+  Snow = 'Snow',
   Thunderstorm = 'Thunderstorm',
-  Atmosphere = 'Atmosphere',
 }

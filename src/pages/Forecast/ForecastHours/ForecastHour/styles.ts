@@ -1,15 +1,15 @@
 export const styles = {
   box: {
+    alignItems: 'center',
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center',
-  },
-  time: {
-    px: 2,
-    bgcolor: 'lightgray',
   },
   stateIcon: {
-    width: 24,
     height: 24,
+    width: 24,
+  },
+  time: {
+    bgcolor: 'lightgray',
+    px: 2,
   },
 } as const;
