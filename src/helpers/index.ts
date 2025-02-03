@@ -15,8 +15,9 @@ export function formatForecastData(
   const humidity = data.main.humidity;
   const speed = data.wind.speed.toFixed(1);
   const state = data.weather[0].main;
+  const deg = data.wind.deg;
 
-  return { humidity, speed, state, temp };
+  return { deg, humidity, speed, state, temp };
 }
 
 export function formatTemp(temp: number): string {

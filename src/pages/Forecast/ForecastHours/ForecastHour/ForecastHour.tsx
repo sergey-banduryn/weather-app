@@ -1,3 +1,4 @@
+import NorthIcon from '@mui/icons-material/North';
 import { Box, Typography } from '@mui/material';
 
 import { WeatherStateIcon } from '@components';
@@ -10,6 +11,7 @@ interface IForecastHourProps extends IFormattedForecastData {
 }
 
 function ForecastHour({
+  deg,
   humidity,
   speed,
   state,
@@ -24,7 +26,12 @@ function ForecastHour({
       </Box>
       <Typography>{temp}</Typography>
       <Typography>{humidity}</Typography>
-      <Typography>{speed}</Typography>
+      <Box sx={styles.wind}>
+        <Box sx={[styles.arrowWrap, { rotate: `${String(deg)}deg` }]}>
+          <NorthIcon sx={styles.arrow} />
+        </Box>
+        <Typography>{speed}</Typography>
+      </Box>
     </Box>
   );
 }

@@ -13,11 +13,14 @@ interface IForecastHoursProps {
 function ForecastHours({ hours }: IForecastHoursProps) {
   const forecastHours = hours.map((hourData) => {
     const { dt_txt } = hourData;
-    const { humidity, speed, state, temp } = formatForecastData(hourData);
+    const { deg, humidity, speed, state, temp } = formatForecastData(hourData);
     const time = dt_txt.slice(11, 16);
 
     return (
-      <ForecastHour key={dt_txt} {...{ humidity, speed, state, temp, time }} />
+      <ForecastHour
+        key={dt_txt}
+        {...{ deg, humidity, speed, state, temp, time }}
+      />
     );
   });
 

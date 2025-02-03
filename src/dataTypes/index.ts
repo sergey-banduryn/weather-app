@@ -10,6 +10,7 @@ export interface IForecastDays {
 }
 
 export interface IFormattedForecastData {
+  deg: number;
   humidity: number;
   speed: string;
   state: WeatherState;
