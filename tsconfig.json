@@ -3,5 +3,14 @@
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
-  ]
+  ],
+  // eslint-import-resolver-typescript doesnt support extends
+  // https://github.com/typescript-eslint/typescript-eslint/issues/2094
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@*": ["./src/*"],
+      "@/public/*": ["./public/*"]
+    }
+  }
 }

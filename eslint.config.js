@@ -1,9 +1,10 @@
 import js from '@eslint/js';
+import importPlugin from 'eslint-plugin-import';
 import perfectionist from 'eslint-plugin-perfectionist';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 import sonarjs from 'eslint-plugin-sonarjs';
-import eslintPluginUnicorn from 'eslint-plugin-unicorn';
+import unicorn from 'eslint-plugin-unicorn';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
@@ -25,11 +26,11 @@ const tseslintConfig = tseslint.config({
   ],
   files: ['**/*.{ts,tsx}'],
   languageOptions: {
-    ecmaVersion: 2020,
+    ecmaVersion: 'latest',
     globals: globals.browser,
+    parser: tseslint.parser,
     parserOptions: {
       projectService: true,
-      tsconfigRootDir: import.meta.dirname,
     },
   },
   name: 'tseslint',
@@ -63,7 +64,7 @@ const sonarjsConfig = tseslint.config({
 });
 
 const unicornConfig = tseslint.config({
-  extends: [eslintPluginUnicorn.configs['flat/recommended']],
+  extends: [unicorn.configs['flat/recommended']],
   name: 'unicorn',
   rules: {
     'unicorn/filename-case': 'off',
@@ -81,6 +82,33 @@ const perfectionistConfig = tseslint.config({
   },
 });
 
+const importPluginConfig = tseslint.config({
+  extends: [
+    importPlugin.flatConfigs.recommended,
+    importPlugin.flatConfigs.typescript,
+  ],
+  name: 'importPlugin',
+  rules: {
+    'import/exports-last': ['error'],
+    // 'import/extensions': [
+    //   'error',
+    //   {
+    //     js: 'always',
+    //     json: 'always',
+    //   },
+    // ],
+    // 'import/newline-after-import': ['error'],
+    'import/no-default-export': ['error'],
+    'import/no-duplicates': ['error'],
+  },
+  settings: {
+    'import/resolver': {
+      node: true,
+      typescript: true,
+    },
+  },
+});
+
 const config = tseslint.config(
   ...ignoresConfig,
   ...filesConfig,
@@ -89,6 +117,7 @@ const config = tseslint.config(
   ...sonarjsConfig,
   ...unicornConfig,
   ...perfectionistConfig,
+  // ...importPluginConfig,
 );
 
 export default config;
