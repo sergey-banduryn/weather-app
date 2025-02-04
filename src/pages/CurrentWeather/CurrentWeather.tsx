@@ -2,13 +2,16 @@ import { useQuery } from '@tanstack/react-query';
 import { useEffect } from 'react';
 import { toast } from 'react-toastify';
 
-import NorthIcon from '@mui/icons-material/North';
 import { Box, Skeleton, Stack, Typography } from '@mui/material';
 
 import { fetchWeather } from '@api';
-import { WeatherStateIcon } from '@components';
-import BackgroundImageByWeather from '@components/BackgroundImageByWeather';
-import FavoriteBtn from '@components/FavoriteBtn/FavoriteBtn';
+import {
+  BackgroundImageByWeather,
+  FavoriteBtn,
+  WeatherStateIcon,
+  Wind,
+} from '@components';
+import type { WindStyles } from '@components';
 import { formatWeatherData } from '@helpers';
 import { useStore } from '@store';
 
@@ -44,6 +47,10 @@ function CurrentWeather({ city }: ICurrentWeatherProps) {
     toggleFavorite(city);
   };
 
+  const windStyles: WindStyles = {
+    variant: 'h5',
+  };
+
   return (
     <Box sx={styles.box}>
       <Typography sx={styles.text} variant="h4">
@@ -68,19 +75,13 @@ function CurrentWeather({ city }: ICurrentWeatherProps) {
           <Typography sx={styles.text} variant="h5">
             {formattedData.humidity}
           </Typography>
-          <Box sx={styles.wind}>
-            <Box
-              sx={[
-                styles.arrowWrap,
-                { rotate: `${String(formattedData.deg)}deg` },
-              ]}
-            >
-              <NorthIcon sx={styles.arrow} />
-            </Box>
-            <Typography sx={styles.text} variant="h5">
-              {formattedData.speed}
-            </Typography>
-          </Box>
+          <Wind
+            {...{
+              deg: formattedData.deg,
+              speed: formattedData.speed,
+              styles: windStyles,
+            }}
+          />
           <Box sx={styles.stateIcon}>
             <WeatherStateIcon state={formattedData.state} />
           </Box>

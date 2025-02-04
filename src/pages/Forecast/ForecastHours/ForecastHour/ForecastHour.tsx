@@ -1,8 +1,7 @@
-import NorthIcon from '@mui/icons-material/North';
 import { Box, Typography } from '@mui/material';
 
-import { WeatherStateIcon } from '@components';
-import { IFormattedForecastData } from '@dataTypes';
+import { WeatherStateIcon, Wind } from '@components';
+import type { IFormattedForecastData } from '@dataTypes';
 
 import { styles } from './styles';
 
@@ -26,12 +25,13 @@ function ForecastHour({
       </Box>
       <Typography>{temp}</Typography>
       <Typography>{humidity}</Typography>
-      <Box sx={styles.wind}>
-        <Box sx={[styles.arrowWrap, { rotate: `${String(deg)}deg` }]}>
-          <NorthIcon sx={styles.arrow} />
-        </Box>
-        <Typography>{speed}</Typography>
-      </Box>
+      <Wind
+        {...{
+          deg,
+          speed,
+          styles: { arrowWrap: styles.arrowWrap },
+        }}
+      />
     </Box>
   );
 }

@@ -19,4 +19,4 @@ function WeatherStateIcon({ state }: IWeatherStateIconProps) {
   );
 }
 
-export default WeatherStateIcon;
+export { WeatherStateIcon };

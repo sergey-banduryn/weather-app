@@ -12,4 +12,5 @@ function BackgroundImageByWeather({ state }: IBackgroundImageByWeatherProps) {
 
   return <img alt="Background" src={backgroundImageUrl} style={styles.image} />;
 }
-export default BackgroundImageByWeather;
+
+export { BackgroundImageByWeather };

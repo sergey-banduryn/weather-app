@@ -5,9 +5,6 @@ export const styles = {
     width: '100%',
   },
   arrowWrap: {
-    bgcolor: 'white',
-    borderRadius: '50%',
-    display: 'inline-block',
     height: 15,
     width: 15,
   },

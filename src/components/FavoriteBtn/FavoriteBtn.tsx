@@ -19,4 +19,4 @@ function FavoriteBtn({ isFavorite, toggleFavorite }: IFavoriteBtnProps) {
   );
 }
 
-export default FavoriteBtn;
+export { FavoriteBtn };

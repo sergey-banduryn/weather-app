@@ -3,8 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import { Box, Typography } from '@mui/material';
 
 import { fetchWeather } from '@api';
-import { WeatherStateIcon } from '@components';
-import FavoriteBtn from '@components/FavoriteBtn/FavoriteBtn';
+import { FavoriteBtn, WeatherStateIcon } from '@components';
 import { formatWeatherData } from '@helpers';
 
 import { styles } from './styles';
