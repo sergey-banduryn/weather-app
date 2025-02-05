@@ -2,7 +2,7 @@ import { Box, Container } from '@mui/material';
 
 import { useCity } from '@hooks';
 
-import CurrentWeather from './CurrentWeather';
+import CurrentWeatherContainer from './CurrentWeather';
 import FavoriteCities from './FavoriteCities';
 import ForecastContainer from './Forecast';
 import NoCity from './NoCity';
@@ -30,7 +30,7 @@ function Home() {
           width: 760,
         }}
       >
-        {city ? <CurrentWeather city={city.name} /> : <NoCity />}
+        {city ? <CurrentWeatherContainer city={city.name} /> : <NoCity />}
         <FavoriteCities />
       </Box>
       {city && <ForecastContainer city={city.name} />}
