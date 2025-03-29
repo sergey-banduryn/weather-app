@@ -12,7 +12,6 @@ export const styles = {
     width: 20,
   },
   box: {
-    bgcolor: '#ffedd3',
     borderRadius: 4,
     p: 3,
     position: 'relative',

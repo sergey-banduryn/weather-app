@@ -1,7 +1,6 @@
 export const styles = {
   box: {
     alignItems: 'center',
-    bgcolor: '#ffedd3',
     borderRadius: 4,
     display: 'flex',
     justifyContent: 'space-between',

@@ -1,4 +1,5 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import AppThemeProvider from '@theme/AppThemeProvider';
 import { BrowserRouter } from 'react-router';
 
 import { CssBaseline } from '@mui/material';
@@ -12,11 +13,13 @@ const queryClient = new QueryClient();
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <BrowserRouter>
+      <AppThemeProvider>
         <CssBaseline />
-        <AppRouter />
-        <AppToastContainer />
-      </BrowserRouter>
+        <BrowserRouter>
+          <AppRouter />
+          <AppToastContainer />
+        </BrowserRouter>
+      </AppThemeProvider>
     </QueryClientProvider>
   );
 }

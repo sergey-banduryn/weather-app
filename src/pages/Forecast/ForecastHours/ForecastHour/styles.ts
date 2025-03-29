@@ -18,7 +18,6 @@ export const styles = {
     width: 24,
   },
   time: {
-    bgcolor: 'lightgray',
     px: 2,
   },
   wind: {

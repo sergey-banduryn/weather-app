@@ -1,0 +1,87 @@
+/* eslint-disable perfectionist/sort-named-imports */
+import {
+  PaletteOptions,
+  ThemeProvider,
+  createTheme,
+} from '@mui/material/styles';
+
+const lightPalette: PaletteOptions = {
+  background: {
+    default: '#fdfbf7',
+    paper: '#ffffff',
+  },
+  info: {
+    main: '#00bcd4',
+  },
+  primary: {
+    contrastText: '#ffffff',
+    main: '#2196f3',
+  },
+  secondary: {
+    contrastText: '#212121',
+    main: '#ffb74d',
+  },
+  text: {
+    primary: '#1a237e',
+    secondary: '#5c6bc0',
+  },
+  weatherWidgets: {
+    cardActiveBg: '#e2cca9',
+    cardBg: '#fff0db',
+    hourlyBg: '#95a792',
+    mainBg: '#ffe0b2',
+  },
+};
+
+const darkPalette: PaletteOptions = {
+  background: {
+    default: '#0a192f',
+    paper: '#172a45',
+  },
+  info: {
+    main: '#26c6da',
+  },
+  primary: {
+    contrastText: '#0a192f',
+    main: '#90caf9',
+  },
+  secondary: {
+    contrastText: '#ffffff',
+    main: '#f48fb1',
+  },
+  text: {
+    primary: '#ffffff',
+    secondary: '#8892b0',
+  },
+  weatherWidgets: {
+    cardActiveBg: '#3a6073',
+    cardBg: '#1e3d59',
+    hourlyBg: '#172a45',
+    mainBg: '#172a45',
+  },
+};
+
+const theme = createTheme({
+  colorSchemes: {
+    dark: {
+      palette: darkPalette,
+    },
+    light: {
+      palette: lightPalette,
+    },
+  },
+});
+
+interface Props {
+  children: React.ReactNode;
+}
+
+function AppThemeProvider({ children }: Props) {
+  return (
+    <ThemeProvider noSsr theme={theme}>
+      {children}
+    </ThemeProvider>
+  );
+}
+
+export default AppThemeProvider;

@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, useTheme } from '@mui/material';
 
 import { IForecastItemResponse } from '@dataTypes';
 import { formatForecastData } from '@helpers';
@@ -11,6 +11,8 @@ interface IForecastHoursProps {
 }
 
 function ForecastHours({ hours }: IForecastHoursProps) {
+  const { palette } = useTheme();
+
   const forecastHours = hours.map((hourData) => {
     const { dt_txt } = hourData;
     const { deg, humidity, speed, state, temp } = formatForecastData(hourData);
@@ -25,7 +27,7 @@ function ForecastHours({ hours }: IForecastHoursProps) {
   });
 
   return (
-    <Box sx={styles.box}>
+    <Box sx={{ ...styles.box, bgcolor: palette.weatherWidgets?.hourlyBg }}>
       <Box sx={styles.titles}>
         <Typography sx={styles.timeTitle}>&nbsp;</Typography>
         <Typography>&nbsp;</Typography>

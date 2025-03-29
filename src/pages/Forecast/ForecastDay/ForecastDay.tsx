@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, useTheme } from '@mui/material';
 
 import { formatTemp, getMonthName, getWeekdayName } from '@helpers';
 
@@ -20,6 +20,8 @@ function ForecastDay({
   minMaxTemp,
   onClick,
 }: IForecastDayProps) {
+  const { palette } = useTheme();
+
   const weekdayName = getWeekdayName(d_txt);
   const monthName = getMonthName(d_txt);
   const day = d_txt.slice(8);
@@ -31,7 +33,9 @@ function ForecastDay({
       onClick={onClick}
       sx={{
         ...styles.box,
-        bgcolor: isActive ? 'burlywood' : 'bisque',
+        bgcolor: isActive
+          ? palette.weatherWidgets?.cardActiveBg
+          : palette.weatherWidgets?.cardBg,
       }}
     >
       <Typography sx={styles.capitalize} variant="subtitle2">

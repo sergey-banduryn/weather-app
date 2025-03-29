@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, useTheme } from '@mui/material';
 
 import { FavoriteBtn } from '@components';
 
@@ -16,8 +16,10 @@ interface Props {
 }
 
 function CurrentWeatherLayout({ children, city, favorite }: Props) {
+  const { palette } = useTheme();
+
   return (
-    <Box sx={styles.box}>
+    <Box sx={{ ...styles.box, bgcolor: palette.weatherWidgets?.mainBg }}>
       <Typography sx={styles.text} variant="h4">
         {city}
       </Typography>

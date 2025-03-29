@@ -1,6 +1,5 @@
 export const styles = {
   box: {
-    bgcolor: 'lightseagreen',
     borderRadius: 4,
     display: 'flex',
     my: 2,
@@ -8,9 +7,8 @@ export const styles = {
     width: 'min-content',
   },
   timeTitle: {
-    // bgcolor: "lightgray",
-    // width: "100%",
-    // textAlign: "center",
+    textAlign: 'center',
+    width: '100%',
   },
   titles: {
     alignItems: 'center',

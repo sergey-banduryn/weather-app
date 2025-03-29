@@ -3,6 +3,7 @@ import { WeatherState } from '@enums';
 import { IForecastItemResponse } from './responses';
 
 export * from './responses';
+export * from './styles';
 
 export interface IForecastDays {
   d_txt: string;

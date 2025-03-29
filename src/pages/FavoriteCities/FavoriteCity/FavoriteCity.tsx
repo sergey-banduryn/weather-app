@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, useTheme } from '@mui/material';
 
 import { fetchWeather } from '@api';
 import { FavoriteBtn, WeatherStateIcon } from '@components';
@@ -24,12 +24,14 @@ function FavoriteCity({
     queryKey: ['fetchWeather', city],
   });
 
+  const { palette } = useTheme();
+
   let formattedData;
 
   if (isSuccess) formattedData = formatWeatherData(data);
 
   return (
-    <Box sx={styles.box}>
+    <Box sx={{ ...styles.box, bgcolor: palette.weatherWidgets?.cardBg }}>
       <Typography sx={styles.cityName}>{city}</Typography>
       <Typography>{formattedData?.temp}</Typography>
       {formattedData && (

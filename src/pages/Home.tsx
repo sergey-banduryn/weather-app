@@ -1,5 +1,6 @@
 import { Box, Container } from '@mui/material';
 
+import { AppTheme } from '@components/AppTheme';
 import { useCity } from '@hooks';
 
 import CurrentWeatherContainer from './CurrentWeather';
@@ -14,6 +15,7 @@ function Home() {
 
   return (
     <Container maxWidth="md">
+      <AppTheme />
       <Box
         sx={{
           my: 4,
