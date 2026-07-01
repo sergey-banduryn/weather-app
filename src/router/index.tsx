@@ -5,9 +5,7 @@ import Home from '@pages/Home';
 function AppRouter() {
   return (
     <Routes>
-      <Route element={<Home />} path="/">
-        <Route element={<Home />} path=":city" />
-      </Route>
+      <Route element={<Home />} path="/:city?" />
     </Routes>
   );
 }
