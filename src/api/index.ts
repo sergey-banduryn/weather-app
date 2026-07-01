@@ -2,7 +2,7 @@ import {
   IForecastResponse,
   IGeocodingToCityResponse,
   IWeatherResponse,
-} from '@dataTypes/responses';
+} from '@types';
 
 const APPID = '91ec443af67ff628c4ca8788c43afa94';
 const baseURL = 'https://api.openweathermap.org';

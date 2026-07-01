@@ -4,7 +4,7 @@ import {
   IFormattedForecastData,
   IFormattedWeatherData,
   IWeatherResponse,
-} from '@dataTypes';
+} from '@types';
 
 export function formatForecastData(
   data: IForecastItemResponse,

@@ -2,8 +2,8 @@ import { useState } from 'react';
 
 import { Box } from '@mui/material';
 
-import { IForecastDays } from '@dataTypes';
 import { getMaxTempForDay, getMinTempForDay } from '@helpers';
+import { IForecastDays } from '@types';
 
 import ForecastDay from './ForecastDay';
 import ForecastHours from './ForecastHours';

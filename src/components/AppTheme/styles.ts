@@ -1,4 +1,4 @@
-import type { ComponentStyles } from '@dataTypes';
+import type { ComponentStyles } from '@types';
 
 export const styles: ComponentStyles = {
   box: {

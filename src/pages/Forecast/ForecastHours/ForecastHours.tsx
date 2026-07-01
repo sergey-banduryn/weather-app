@@ -1,7 +1,7 @@
 import { Box, Typography, useTheme } from '@mui/material';
 
-import { IForecastItemResponse } from '@dataTypes';
 import { formatForecastData } from '@helpers';
+import { IForecastItemResponse } from '@types';
 
 import ForecastHour from './ForecastHour';
 import { styles } from './styles';
