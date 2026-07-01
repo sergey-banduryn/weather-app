@@ -3,7 +3,7 @@ import { useParams } from 'react-router';
 
 import { fetchGeocodingToCity } from '@api';
 
-import useGeolocationCoords from './useGeolocationCoords';
+import { useGeolocationCoords } from './useGeolocationCoords';
 
 type IuseCityReturn = undefined | { name: string };
 
@@ -23,4 +23,4 @@ function useCity(): IuseCityReturn {
   if (isDone && !coords) return { name: 'Kyiv' };
 }
 
-export default useCity;
+export { useCity };

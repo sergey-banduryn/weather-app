@@ -26,4 +26,4 @@ function useGeolocationCoords(): IuseGeolocationCoordsReturn {
   return { coords, isDone };
 }
 
-export default useGeolocationCoords;
+export { useGeolocationCoords };
