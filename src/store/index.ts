@@ -1,7 +1,12 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
-import { IStore } from '@dataTypes';
+interface IStore {
+  addSearchedCity: (city: string) => void;
+  favoriteCities: string[];
+  searchedCities: string[];
+  toggleFavorite: (city: string) => void;
+}
 
 const useStore = create<IStore>()(
   persist(

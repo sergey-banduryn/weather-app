@@ -26,10 +26,3 @@ export interface IFormattedWeatherData {
   state: WeatherState;
   temp: string;
 }
-
-export interface IStore {
-  addSearchedCity: (city: string) => void;
-  favoriteCities: string[];
-  searchedCities: string[];
-  toggleFavorite: (city: string) => void;
-}
