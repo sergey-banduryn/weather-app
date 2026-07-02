@@ -18,4 +18,4 @@ function SearchHistory() {
   return <Box sx={{ display: 'flex', gap: 1, my: 1 }}>{links}</Box>;
 }
 
-export default SearchHistory;
+export { SearchHistory };

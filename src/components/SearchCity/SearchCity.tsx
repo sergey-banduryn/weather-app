@@ -35,4 +35,4 @@ function SearchCity() {
   );
 }
 
-export default SearchCity;
+export { SearchCity };

@@ -30,4 +30,4 @@ function NoCity() {
   );
 }
 
-export default NoCity;
+export { NoCity };

@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router';
 
 import { CssBaseline } from '@mui/material';
 
-import AppToastContainer from '@pages/AppToastContainer';
+import { AppToastContainer } from '@components/AppToastContainer';
 
 import AppRouter from './router';
 

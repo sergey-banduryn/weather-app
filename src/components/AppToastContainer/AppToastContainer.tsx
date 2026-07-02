@@ -1,6 +1,6 @@
 import { Slide, ToastContainer } from 'react-toastify';
 
-export default function AppToastContainer() {
+function AppToastContainer() {
   return (
     <ToastContainer
       autoClose={3000}
@@ -17,3 +17,5 @@ export default function AppToastContainer() {
     />
   );
 }
+
+export { AppToastContainer };
