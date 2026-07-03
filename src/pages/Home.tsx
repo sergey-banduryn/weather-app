@@ -4,11 +4,10 @@ import { AppTheme } from '@components/AppTheme';
 import { NoCity } from '@components/NoCity';
 import { SearchCity } from '@components/SearchCity';
 import { SearchHistory } from '@components/SearchHistory';
+import CurrentWeatherContainer from '@features/CurrentWeather';
+import FavoriteCities from '@features/FavoriteCities';
+import ForecastContainer from '@features/Forecast';
 import { useCity } from '@hooks';
-
-import CurrentWeatherContainer from './CurrentWeather';
-import FavoriteCities from './FavoriteCities';
-import ForecastContainer from './Forecast';
 
 function Home() {
   const city = useCity();
