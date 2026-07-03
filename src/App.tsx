@@ -4,9 +4,8 @@ import { BrowserRouter } from 'react-router';
 import { CssBaseline } from '@mui/material';
 
 import { AppToastContainer } from '@components/AppToastContainer';
-import AppThemeProvider from '@theme/AppThemeProvider';
-
-import AppRouter from './router';
+import AppRouter from '@router';
+import AppThemeProvider from '@theme';
 
 const queryClient = new QueryClient();
 
