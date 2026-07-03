@@ -10,4 +10,4 @@ function CurrentWeatherSkeleton() {
   );
 }
 
-export default CurrentWeatherSkeleton;
+export { CurrentWeatherSkeleton };

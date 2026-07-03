@@ -2,7 +2,7 @@ import { Box } from '@mui/material';
 
 import { useStore } from '@store';
 
-import FavoriteCity from './FavoriteCity';
+import { FavoriteCity } from './FavoriteCity';
 import { styles } from './styles';
 
 function FavoriteCities() {
@@ -33,4 +33,4 @@ function FavoriteCities() {
   );
 }
 
-export default FavoriteCities;
+export { FavoriteCities };

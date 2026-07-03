@@ -59,4 +59,4 @@ function ForecastDay({
   );
 }
 
-export default ForecastDay;
+export { ForecastDay };

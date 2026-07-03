@@ -7,7 +7,7 @@ import { Box, CircularProgress } from '@mui/material';
 import { fetchForecast } from '@api';
 import { getForecastDays } from '@helpers';
 
-import ForecastDays from './ForecastDays';
+import { ForecastDays } from './ForecastDays';
 
 interface IForecastContainerProps {
   city: string;
@@ -45,4 +45,4 @@ function ForecastContainer({ city }: IForecastContainerProps) {
   );
 }
 
-export default ForecastContainer;
+export { ForecastContainer };

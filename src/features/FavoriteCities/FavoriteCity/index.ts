@@ -1,1 +1,1 @@
-export { default } from './FavoriteCity';
+export { FavoriteCity } from './FavoriteCity';

@@ -1,1 +1,1 @@
-export { default } from './CurrentWeatherContainer';
+export { CurrentWeatherContainer } from './CurrentWeatherContainer';

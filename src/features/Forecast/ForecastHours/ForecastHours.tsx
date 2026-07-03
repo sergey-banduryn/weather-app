@@ -3,7 +3,7 @@ import { Box, Typography, useTheme } from '@mui/material';
 import { formatForecastData } from '@helpers';
 import { IForecastItemResponse } from '@types';
 
-import ForecastHour from './ForecastHour';
+import { ForecastHour } from './ForecastHour';
 import { styles } from './styles';
 
 interface IForecastHoursProps {
@@ -40,4 +40,4 @@ function ForecastHours({ hours }: IForecastHoursProps) {
   );
 }
 
-export default ForecastHours;
+export { ForecastHours };

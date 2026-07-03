@@ -1,6 +1,6 @@
 import { WeatherState } from '@enums';
 
-export interface IForecastItemResponse {
+interface IForecastItemResponse {
   clouds: {
     all: number;
   };
@@ -16,7 +16,7 @@ export interface IForecastItemResponse {
   wind: IWind;
 }
 
-export interface IForecastResponse {
+interface IForecastResponse {
   city: {
     coord: {
       lat: number;
@@ -35,7 +35,7 @@ export interface IForecastResponse {
   message: number;
 }
 
-export interface IGeocodingToCityResponse {
+interface IGeocodingToCityResponse {
   country: string;
   lat: number;
   local_names: Record<string, string>;
@@ -44,7 +44,26 @@ export interface IGeocodingToCityResponse {
   state: string;
 }
 
-export interface IWeatherResponse {
+interface IMain {
+  feels_like: number;
+  grnd_level: number;
+  humidity: number;
+  pressure: number;
+  sea_level: number;
+  temp: number;
+  temp_kf: number;
+  temp_max: number;
+  temp_min: number;
+}
+
+interface IWeather {
+  description: string;
+  icon: string;
+  id: number;
+  main: WeatherState;
+}
+
+interface IWeatherResponse {
   base: string;
   clouds: {
     all: number;
@@ -72,27 +91,15 @@ export interface IWeatherResponse {
   wind: IWind;
 }
 
-interface IMain {
-  feels_like: number;
-  grnd_level: number;
-  humidity: number;
-  pressure: number;
-  sea_level: number;
-  temp: number;
-  temp_kf: number;
-  temp_max: number;
-  temp_min: number;
-}
-
-interface IWeather {
-  description: string;
-  icon: string;
-  id: number;
-  main: WeatherState;
-}
-
 interface IWind {
   deg: number;
   gust?: number;
   speed: number;
 }
+
+export type {
+  IForecastItemResponse,
+  IForecastResponse,
+  IGeocodingToCityResponse,
+  IWeatherResponse,
+};

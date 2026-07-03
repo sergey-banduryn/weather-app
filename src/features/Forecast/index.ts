@@ -1,1 +1,1 @@
-export { default } from './ForecastContainer';
+export { ForecastContainer } from './ForecastContainer';

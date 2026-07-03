@@ -31,4 +31,4 @@ function CurrentWeatherLayout({ children, city, favorite }: Props) {
   );
 }
 
-export default CurrentWeatherLayout;
+export { CurrentWeatherLayout };

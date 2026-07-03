@@ -6,9 +6,9 @@ import { fetchWeather } from '@api';
 import { formatWeatherData } from '@helpers';
 import { useStore } from '@store';
 
-import CurrentWeatherData from './components/CurrentWeatherData';
-import CurrentWeatherLayout from './components/CurrentWeatherLayout';
-import CurrentWeatherSkeleton from './components/CurrentWeatherSkeleton';
+import { CurrentWeatherData } from './components/CurrentWeatherData';
+import { CurrentWeatherLayout } from './components/CurrentWeatherLayout';
+import { CurrentWeatherSkeleton } from './components/CurrentWeatherSkeleton';
 
 interface Props {
   city: string;
@@ -54,4 +54,4 @@ function CurrentWeatherContainer({ city }: Props) {
   );
 }
 
-export default CurrentWeatherContainer;
+export { CurrentWeatherContainer };

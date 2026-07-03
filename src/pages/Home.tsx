@@ -4,9 +4,9 @@ import { AppTheme } from '@components/AppTheme';
 import { NoCity } from '@components/NoCity';
 import { SearchCity } from '@components/SearchCity';
 import { SearchHistory } from '@components/SearchHistory';
-import CurrentWeatherContainer from '@features/CurrentWeather';
-import FavoriteCities from '@features/FavoriteCities';
-import ForecastContainer from '@features/Forecast';
+import { CurrentWeatherContainer } from '@features/CurrentWeather';
+import { FavoriteCities } from '@features/FavoriteCities';
+import { ForecastContainer } from '@features/Forecast';
 import { useCity } from '@hooks';
 
 function Home() {
@@ -39,4 +39,4 @@ function Home() {
   );
 }
 
-export default Home;
+export { Home };

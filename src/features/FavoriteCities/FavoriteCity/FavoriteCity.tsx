@@ -44,4 +44,4 @@ function FavoriteCity({
   );
 }
 
-export default FavoriteCity;
+export { FavoriteCity };

@@ -39,4 +39,4 @@ function CurrentWeatherData({ data }: Props) {
   );
 }
 
-export default CurrentWeatherData;
+export { CurrentWeatherData };

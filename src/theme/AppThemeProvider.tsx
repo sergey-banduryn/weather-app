@@ -84,4 +84,4 @@ function AppThemeProvider({ children }: Props) {
   );
 }
 
-export default AppThemeProvider;
+export { AppThemeProvider };

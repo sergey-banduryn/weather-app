@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router';
 
-import Home from '@pages/Home';
+import { Home } from '@pages/Home';
 
 function AppRouter() {
   return (
@@ -10,4 +10,4 @@ function AppRouter() {
   );
 }
 
-export default AppRouter;
+export { AppRouter };

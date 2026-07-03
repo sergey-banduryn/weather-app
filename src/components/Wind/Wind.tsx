@@ -5,15 +5,15 @@ import type { SystemStyleObject } from '@mui/system';
 
 import { styles } from './styles';
 
-export interface WindStyles {
-  arrowWrap?: SystemStyleObject;
-  variant?: TypographyProps['variant'];
-}
-
 interface Props {
   deg: number;
   speed: string;
   styles: WindStyles;
+}
+
+interface WindStyles {
+  arrowWrap?: SystemStyleObject;
+  variant?: TypographyProps['variant'];
 }
 
 function Wind({ deg, speed, styles: exStyles }: Props) {
@@ -34,3 +34,4 @@ function Wind({ deg, speed, styles: exStyles }: Props) {
 }
 
 export { Wind };
+export type { WindStyles };

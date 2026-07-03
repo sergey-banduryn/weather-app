@@ -5,8 +5,8 @@ import { Box } from '@mui/material';
 import { getMaxTempForDay, getMinTempForDay } from '@helpers';
 import { IForecastDays } from '@types';
 
-import ForecastDay from './ForecastDay';
-import ForecastHours from './ForecastHours';
+import { ForecastDay } from './ForecastDay';
+import { ForecastHours } from './ForecastHours';
 
 interface IForecastDaysProps {
   data: IForecastDays[];
@@ -53,4 +53,4 @@ function ForecastDays({ data }: IForecastDaysProps) {
   );
 }
 
-export default ForecastDays;
+export { ForecastDays };

@@ -1,1 +1,1 @@
-export { default } from './ForecastHour';
+export { ForecastHour } from './ForecastHour';

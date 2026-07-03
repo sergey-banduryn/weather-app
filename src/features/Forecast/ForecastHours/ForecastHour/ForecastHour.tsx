@@ -36,4 +36,4 @@ function ForecastHour({
   );
 }
 
-export default ForecastHour;
+export { ForecastHour };

@@ -1,4 +1,3 @@
-import js from '@eslint/js';
 import importPlugin from 'eslint-plugin-import';
 import perfectionist from 'eslint-plugin-perfectionist';
 import reactHooks from 'eslint-plugin-react-hooks';
@@ -13,16 +12,11 @@ const ignoresConfig = tseslint.config({
   name: 'ignores',
 });
 
-const filesConfig = tseslint.config({
-  files: ['**/*.{ts,tsx}'],
-  name: 'files',
-});
-
 const tseslintConfig = tseslint.config({
   extends: [
-    js.configs.recommended,
-    tseslint.configs.strictTypeChecked,
-    tseslint.configs.stylisticTypeChecked,
+    tseslint.configs.eslintRecommended,
+    ...tseslint.configs.strictTypeChecked,
+    ...tseslint.configs.stylisticTypeChecked,
   ],
   files: ['**/*.{ts,tsx}'],
   languageOptions: {
@@ -41,6 +35,7 @@ const tseslintConfig = tseslint.config({
 
 const reactConfig = tseslint.config({
   name: 'react',
+  files: ['**/*.{ts,tsx}'],
   plugins: {
     'react-hooks': reactHooks,
     'react-refresh': reactRefresh,
@@ -56,6 +51,7 @@ const reactConfig = tseslint.config({
 
 const sonarjsConfig = tseslint.config({
   extends: [sonarjs.configs.recommended],
+  files: ['**/*.{ts,tsx}'],
   name: 'sonarjs',
   rules: {
     'sonarjs/no-intrusive-permissions': 'off',
@@ -65,6 +61,7 @@ const sonarjsConfig = tseslint.config({
 
 const unicornConfig = tseslint.config({
   extends: [unicorn.configs['flat/recommended']],
+  files: ['**/*.{ts,tsx}'],
   name: 'unicorn',
   rules: {
     'unicorn/filename-case': 'off',
@@ -76,6 +73,7 @@ const unicornConfig = tseslint.config({
 
 const perfectionistConfig = tseslint.config({
   extends: [perfectionist.configs['recommended-natural']],
+  files: ['**/*.{ts,tsx}'],
   name: 'perfectionist',
   rules: {
     'perfectionist/sort-imports': 'off',
@@ -90,16 +88,17 @@ const importPluginConfig = tseslint.config({
   name: 'importPlugin',
   rules: {
     'import/exports-last': ['error'],
-    // 'import/extensions': [
-    //   'error',
-    //   {
-    //     js: 'always',
-    //     json: 'always',
-    //   },
-    // ],
-    // 'import/newline-after-import': ['error'],
+    'import/extensions': [
+      'error',
+      {
+        json: 'always',
+      },
+    ],
+    'import/newline-after-import': ['error'],
+    'import/no-commonjs': 'warn',
     'import/no-default-export': ['error'],
     'import/no-duplicates': ['error'],
+    'import/no-unused-modules': 'warn',
   },
   settings: {
     'import/resolver': {
@@ -111,13 +110,19 @@ const importPluginConfig = tseslint.config({
 
 const config = tseslint.config(
   ...ignoresConfig,
-  ...filesConfig,
   ...tseslintConfig,
   ...reactConfig,
   ...sonarjsConfig,
   ...unicornConfig,
   ...perfectionistConfig,
-  // ...importPluginConfig,
+  ...importPluginConfig,
+  {
+    files: ['*.config.{js,ts}'],
+    rules: {
+      'import/no-default-export': ['off'],
+      'import/no-named-as-default-member': ['off'],
+    },
+  },
 );
 
 export default config;

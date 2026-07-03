@@ -4,8 +4,8 @@ import { BrowserRouter } from 'react-router';
 import { CssBaseline } from '@mui/material';
 
 import { AppToastContainer } from '@components/AppToastContainer';
-import AppRouter from '@router';
-import AppThemeProvider from '@theme';
+import { AppRouter } from '@router';
+import { AppThemeProvider } from '@theme';
 
 const queryClient = new QueryClient();
 
@@ -23,4 +23,4 @@ function App() {
   );
 }
 
-export default App;
+export { App };
