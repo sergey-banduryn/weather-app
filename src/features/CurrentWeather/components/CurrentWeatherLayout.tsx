@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Box, Typography, useTheme } from '@mui/material';
 
-import { FavoriteBtn } from '@components';
+import { FavoriteBtn } from '@components/FavoriteBtn';
 
 import { styles } from './styles';
 

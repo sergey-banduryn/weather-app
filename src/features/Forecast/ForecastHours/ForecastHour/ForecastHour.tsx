@@ -1,6 +1,7 @@
 import { Box, Typography } from '@mui/material';
 
-import { WeatherStateIcon, Wind } from '@components';
+import { WeatherStateIcon } from '@components/WeatherStateIcon';
+import { Wind } from '@components/Wind';
 import type { IFormattedForecastData } from '@types';
 
 import { styles } from './styles';
