@@ -29,27 +29,27 @@ const tseslintConfig = tseslint.config({
   },
   name: 'tseslint',
   rules: {
-    '@typescript-eslint/no-non-null-assertion': 'off',
-    '@typescript-eslint/consistent-type-imports': [
-      'error',
-      {
-        'prefer': 'type-imports',
-        'fixStyle': 'inline-type-imports',
-      },
-    ],
-    '@typescript-eslint/no-import-type-side-effects': 'error',
     '@typescript-eslint/consistent-type-exports': [
       'error',
       {
         'fixMixedExportsWithInlineTypeSpecifier': true,
       },
     ],
+    '@typescript-eslint/consistent-type-imports': [
+      'error',
+      {
+        'fixStyle': 'inline-type-imports',
+        'prefer': 'type-imports',
+      },
+    ],
+    '@typescript-eslint/no-import-type-side-effects': 'error',
+    '@typescript-eslint/no-non-null-assertion': 'off',
     'no-restricted-syntax': [
       'error',
       {
-        'selector': 'ExportNamedDeclaration[declaration!=null]',
         'message':
           'Please use a single export at the bottom of the file instead of inline exports.',
+        'selector': 'ExportNamedDeclaration[declaration!=null]',
       },
       {
         'message': 'Export/Import all (*) is forbidden.',
@@ -60,8 +60,8 @@ const tseslintConfig = tseslint.config({
 });
 
 const reactConfig = tseslint.config({
-  name: 'react',
   files: ['**/*.{ts,tsx}'],
+  name: 'react',
   plugins: {
     'react-hooks': reactHooks,
     'react-refresh': reactRefresh,
@@ -82,8 +82,8 @@ const sonarjsConfig = tseslint.config({
   rules: {
     'sonarjs/no-intrusive-permissions': 'off',
     'sonarjs/prefer-read-only-props': 'off',
-    'sonarjs/void-use': 'off',
     'sonarjs/reduce-initial-value': 'off',
+    'sonarjs/void-use': 'off',
   },
 });
 
@@ -101,7 +101,7 @@ const unicornConfig = tseslint.config({
 
 const perfectionistConfig = tseslint.config({
   extends: [perfectionist.configs['recommended-natural']],
-  files: ['**/*.{ts,tsx}'],
+  files: ['**/*.{ts,tsx}', '*.config.{js,ts}'],
   name: 'perfectionist',
   rules: {
     'perfectionist/sort-imports': 'off',
