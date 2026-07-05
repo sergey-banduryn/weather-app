@@ -33,6 +33,7 @@ function CurrentWeatherContainer({ city }: Props) {
   }, [isError, error]);
 
   let formattedData;
+
   if (data) formattedData = formatWeatherData(data);
 
   const isFavorite = favoriteCities.includes(city);

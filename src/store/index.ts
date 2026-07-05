@@ -16,6 +16,7 @@ const useStore = create<IStore>()(
           const set = new Set(state.searchedCities);
           set.delete(city);
           set.add(city);
+
           return { searchedCities: [...set] };
         });
       },
@@ -24,8 +25,10 @@ const useStore = create<IStore>()(
       toggleFavorite: (city) => {
         set((state) => {
           const set = new Set(state.favoriteCities);
+
           if (set.has(city)) set.delete(city);
           else set.add(city);
+
           return { favoriteCities: [...set] };
         });
       },

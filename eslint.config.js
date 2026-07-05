@@ -1,3 +1,4 @@
+import stylistic from '@stylistic/eslint-plugin';
 import importPlugin from 'eslint-plugin-import';
 import perfectionist from 'eslint-plugin-perfectionist';
 import reactHooks from 'eslint-plugin-react-hooks';
@@ -129,10 +130,63 @@ const importPluginConfig = tseslint.config({
     'import/no-unused-modules': 'warn',
   },
   settings: {
+    'import/ignore': ['@stylistic'],
     'import/resolver': {
       node: true,
       typescript: true,
     },
+  },
+});
+
+const stylisticConfig = tseslint.config({
+  files: ['**/*.{ts,tsx}'],
+  name: 'stylistic',
+  plugins: {
+    '@stylistic': stylistic,
+  },
+  rules: {
+    '@stylistic/padding-line-between-statements': [
+      'error',
+      {
+        'blankLine': 'always',
+        'next': [
+          'block-like',
+          'class',
+          'do',
+          'for',
+          'function',
+          'if',
+          'switch',
+          'try',
+          'while',
+        ],
+        'prev': '*',
+      },
+      {
+        'blankLine': 'always',
+        'next': '*',
+        'prev': [
+          'block-like',
+          'class',
+          'do',
+          'for',
+          'function',
+          'if',
+          'switch',
+          'try',
+          'while',
+        ],
+      },
+      { 'blankLine': 'always', 'next': 'return', 'prev': '*' },
+      { 'blankLine': 'always', 'next': '*', 'prev': 'return' },
+      {
+        'blankLine': 'any',
+        'next': ['const', 'let', 'var'],
+        'prev': ['const', 'let', 'var'],
+      },
+      { 'blankLine': 'always', 'next': 'export', 'prev': '*' },
+      { 'blankLine': 'never', 'next': 'export', 'prev': 'export' },
+    ],
   },
 });
 
@@ -144,6 +198,7 @@ const config = tseslint.config(
   ...unicornConfig,
   ...perfectionistConfig,
   ...importPluginConfig,
+  ...stylisticConfig,
   {
     files: ['*.config.{js,ts}'],
     rules: {

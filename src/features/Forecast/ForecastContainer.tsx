@@ -24,6 +24,7 @@ function ForecastContainer({ city }: IForecastContainerProps) {
   }, [isError, error]);
 
   let forecastDays;
+
   if (data) forecastDays = getForecastDays(data.list);
 
   return (

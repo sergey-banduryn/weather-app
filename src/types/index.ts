@@ -30,7 +30,5 @@ export type {
   IGeocodingToCityResponse,
   IWeatherResponse,
 } from './responses';
-
 export type { ComponentStyles } from './styles';
-
 export type { IForecastDays, IFormattedForecastData, IFormattedWeatherData };
