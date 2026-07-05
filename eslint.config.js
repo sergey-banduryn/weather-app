@@ -1,6 +1,7 @@
 import stylistic from '@stylistic/eslint-plugin';
 import importPlugin from 'eslint-plugin-import';
 import perfectionist from 'eslint-plugin-perfectionist';
+import reactPlugin from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 import sonarjs from 'eslint-plugin-sonarjs';
@@ -75,15 +76,23 @@ const reactConfig = tseslint.config({
   files: ['**/*.{ts,tsx}'],
   name: 'react',
   plugins: {
+    'react': reactPlugin,
     'react-hooks': reactHooks,
     'react-refresh': reactRefresh,
   },
   rules: {
+    ...reactPlugin.configs.recommended.rules,
+    ...reactPlugin.configs['jsx-runtime'].rules,
     ...reactHooks.configs.recommended.rules,
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true },
     ],
+  },
+  settings: {
+    react: {
+      version: 'detect',
+    },
   },
 });
 
