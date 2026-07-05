@@ -1,6 +1,6 @@
 /* eslint-disable perfectionist/sort-named-imports */
 import {
-  PaletteOptions,
+  type PaletteOptions,
   ThemeProvider,
   createTheme,
 } from '@mui/material/styles';

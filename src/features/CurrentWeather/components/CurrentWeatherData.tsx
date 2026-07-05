@@ -4,7 +4,7 @@ import { BackgroundImageByWeather } from '@components/BackgroundImageByWeather';
 import { WeatherStateIcon } from '@components/WeatherStateIcon';
 import { Wind } from '@components/Wind';
 import type { WindStyles } from '@components/Wind';
-import { IFormattedWeatherData } from '@types';
+import type { IFormattedWeatherData } from '@types';
 
 import { styles } from './styles';
 

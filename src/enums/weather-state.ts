@@ -1,4 +1,4 @@
-export enum WeatherState {
+enum WeatherState {
   Atmosphere = 'Atmosphere',
   Clear = 'Clear',
   Clouds = 'Clouds',
@@ -7,3 +7,5 @@ export enum WeatherState {
   Snow = 'Snow',
   Thunderstorm = 'Thunderstorm',
 }
+
+export { WeatherState };

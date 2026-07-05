@@ -1,1 +1,1 @@
-export * from './SearchCity';
+export { SearchCity } from './SearchCity';

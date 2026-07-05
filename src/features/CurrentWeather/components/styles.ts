@@ -1,4 +1,4 @@
-export const styles = {
+const styles = {
   arrow: {
     color: 'grey',
     height: '100%',
@@ -41,3 +41,5 @@ export const styles = {
     gap: 1,
   },
 } as const;
+
+export { styles };

@@ -1,4 +1,4 @@
-export const styles = {
+const styles = {
   image: {
     borderRadius: 16,
     bottom: 0,
@@ -14,3 +14,5 @@ export const styles = {
     zIndex: 1,
   },
 } as const;
+
+export { styles };

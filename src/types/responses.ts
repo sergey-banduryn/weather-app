@@ -1,4 +1,4 @@
-import { WeatherState } from '@enums';
+import type { WeatherState } from '@enums';
 
 interface IForecastItemResponse {
   clouds: {

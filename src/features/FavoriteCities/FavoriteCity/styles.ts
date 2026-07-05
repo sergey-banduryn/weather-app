@@ -1,4 +1,4 @@
-export const styles = {
+const styles = {
   box: {
     alignItems: 'center',
     borderRadius: 4,
@@ -16,3 +16,5 @@ export const styles = {
     width: 36,
   },
 } as const;
+
+export { styles };

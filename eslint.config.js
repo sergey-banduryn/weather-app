@@ -30,6 +30,32 @@ const tseslintConfig = tseslint.config({
   name: 'tseslint',
   rules: {
     '@typescript-eslint/no-non-null-assertion': 'off',
+    '@typescript-eslint/consistent-type-imports': [
+      'error',
+      {
+        'prefer': 'type-imports',
+        'fixStyle': 'inline-type-imports',
+      },
+    ],
+    '@typescript-eslint/no-import-type-side-effects': 'error',
+    '@typescript-eslint/consistent-type-exports': [
+      'error',
+      {
+        'fixMixedExportsWithInlineTypeSpecifier': true,
+      },
+    ],
+    'no-restricted-syntax': [
+      'error',
+      {
+        'selector': 'ExportNamedDeclaration[declaration!=null]',
+        'message':
+          'Please use a single export at the bottom of the file instead of inline exports.',
+      },
+      {
+        'message': 'Export/Import all (*) is forbidden.',
+        'selector': 'ExportAllDeclaration,ImportAllDeclaration',
+      },
+    ],
   },
 });
 

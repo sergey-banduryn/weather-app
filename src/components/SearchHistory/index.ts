@@ -1,1 +1,1 @@
-export * from './SearchHistory';
+export { SearchHistory } from './SearchHistory';

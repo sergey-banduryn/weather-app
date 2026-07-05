@@ -1,1 +1,1 @@
-export * from './BackgroundImageByWeather';
+export { BackgroundImageByWeather } from './BackgroundImageByWeather';

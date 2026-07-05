@@ -1,4 +1,4 @@
-import {
+import type {
   IForecastResponse,
   IGeocodingToCityResponse,
   IWeatherResponse,
@@ -7,7 +7,7 @@ import {
 const APPID = '91ec443af67ff628c4ca8788c43afa94';
 const baseURL = 'https://api.openweathermap.org';
 
-export async function fetchForecast(city: string): Promise<IForecastResponse> {
+async function fetchForecast(city: string): Promise<IForecastResponse> {
   const url = `${baseURL}/data/2.5/forecast?q=${city}&APPID=${APPID}&units=metric`;
 
   const response = await fetch(url);
@@ -19,7 +19,7 @@ export async function fetchForecast(city: string): Promise<IForecastResponse> {
   return response.json() as Promise<IForecastResponse>;
 }
 
-export async function fetchGeocodingToCity(
+async function fetchGeocodingToCity(
   coords: GeolocationCoordinates,
 ): Promise<IGeocodingToCityResponse[]> {
   const { latitude, longitude } = coords;
@@ -35,7 +35,7 @@ export async function fetchGeocodingToCity(
   return response.json() as Promise<IGeocodingToCityResponse[]>;
 }
 
-export async function fetchWeather(city: string): Promise<IWeatherResponse> {
+async function fetchWeather(city: string): Promise<IWeatherResponse> {
   const url = `${baseURL}/data/2.5/weather?q=${city}&APPID=${APPID}&units=metric`;
 
   const response = await fetch(url);
@@ -46,3 +46,5 @@ export async function fetchWeather(city: string): Promise<IWeatherResponse> {
 
   return response.json() as Promise<IWeatherResponse>;
 }
+
+export { fetchForecast, fetchGeocodingToCity, fetchWeather };

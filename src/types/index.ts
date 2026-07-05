@@ -1,16 +1,13 @@
-import { WeatherState } from '@enums';
+import type { WeatherState } from '@enums';
 
-import { IForecastItemResponse } from './responses';
+import type { IForecastItemResponse } from './responses';
 
-export * from './responses';
-export * from './styles';
-
-export interface IForecastDays {
+interface IForecastDays {
   d_txt: string;
   hours: IForecastItemResponse[];
 }
 
-export interface IFormattedForecastData {
+interface IFormattedForecastData {
   deg: number;
   humidity: number;
   speed: string;
@@ -18,7 +15,7 @@ export interface IFormattedForecastData {
   temp: string;
 }
 
-export interface IFormattedWeatherData {
+interface IFormattedWeatherData {
   deg: number;
   humidity: string;
   name: string;
@@ -26,3 +23,14 @@ export interface IFormattedWeatherData {
   state: WeatherState;
   temp: string;
 }
+
+export type {
+  IForecastItemResponse,
+  IForecastResponse,
+  IGeocodingToCityResponse,
+  IWeatherResponse,
+} from './responses';
+
+export type { ComponentStyles } from './styles';
+
+export type { IForecastDays, IFormattedForecastData, IFormattedWeatherData };

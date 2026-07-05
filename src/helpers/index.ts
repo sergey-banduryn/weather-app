@@ -1,4 +1,4 @@
-import {
+import type {
   IForecastDays,
   IForecastItemResponse,
   IFormattedForecastData,
@@ -6,7 +6,7 @@ import {
   IWeatherResponse,
 } from '@types';
 
-export function formatForecastData(
+function formatForecastData(
   data: IForecastItemResponse,
 ): IFormattedForecastData {
   let temp;
@@ -20,16 +20,14 @@ export function formatForecastData(
   return { deg, humidity, speed, state, temp };
 }
 
-export function formatTemp(temp: number): string {
+function formatTemp(temp: number): string {
   const tempNum = Math.round(temp);
   const tempStr =
     tempNum > 0 ? '+' + String(tempNum) + '°' : String(tempNum) + '°';
   return tempStr;
 }
 
-export function formatWeatherData(
-  data: IWeatherResponse,
-): IFormattedWeatherData {
+function formatWeatherData(data: IWeatherResponse): IFormattedWeatherData {
   const name = data.name;
   let temp;
   temp = Math.round(data.main.temp);
@@ -42,13 +40,11 @@ export function formatWeatherData(
   return { deg, humidity, name, speed, state, temp };
 }
 
-export function getCurrentTimeStr(): string {
+function getCurrentTimeStr(): string {
   return new Date(Date.now()).toTimeString().slice(0, 5);
 }
 
-export function getForecastDays(
-  data: IForecastItemResponse[],
-): IForecastDays[] {
+function getForecastDays(data: IForecastItemResponse[]): IForecastDays[] {
   const hours = data.map((hour) => {
     return {
       d_txt: hour.dt_txt.slice(0, 10),
@@ -70,7 +66,7 @@ export function getForecastDays(
   return days;
 }
 
-export function getMaxTempForDay(hours: IForecastItemResponse[]): number {
+function getMaxTempForDay(hours: IForecastItemResponse[]): number {
   if (hours.length === 0) return 0;
 
   return (
@@ -81,7 +77,7 @@ export function getMaxTempForDay(hours: IForecastItemResponse[]): number {
   );
 }
 
-export function getMinTempForDay(hours: IForecastItemResponse[]): number {
+function getMinTempForDay(hours: IForecastItemResponse[]): number {
   if (hours.length === 0) return 0;
 
   return (
@@ -92,16 +88,28 @@ export function getMinTempForDay(hours: IForecastItemResponse[]): number {
   );
 }
 
-export function getMonthName(dateString: string): string {
+function getMonthName(dateString: string): string {
   const options: Intl.DateTimeFormatOptions = { month: 'long' };
   return new Intl.DateTimeFormat(undefined, options).format(
     new Date(Date.parse(dateString)),
   );
 }
 
-export function getWeekdayName(dateString: string): string {
+function getWeekdayName(dateString: string): string {
   const options: Intl.DateTimeFormatOptions = { weekday: 'long' };
   return new Intl.DateTimeFormat(undefined, options).format(
     new Date(Date.parse(dateString)),
   );
 }
+
+export {
+  formatForecastData,
+  formatTemp,
+  formatWeatherData,
+  getCurrentTimeStr,
+  getForecastDays,
+  getMaxTempForDay,
+  getMinTempForDay,
+  getMonthName,
+  getWeekdayName,
+};

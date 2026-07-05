@@ -1,4 +1,4 @@
-export const styles = {
+const styles = {
   box: {
     borderRadius: 4,
     cursor: 'pointer',
@@ -21,3 +21,5 @@ export const styles = {
     textAlign: 'center',
   },
 } as const;
+
+export { styles };

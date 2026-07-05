@@ -1,8 +1,8 @@
 import { WeatherState } from '@enums';
 
-export const cardBackgroundPath = '/weather-card-background/';
+const cardBackgroundPath = '/weather-card-background/';
 
-export const cardBackgroundStatus = {
+const cardBackgroundStatus = {
   [WeatherState.Atmosphere]: 'atmosphere.webp',
   [WeatherState.Clear]: 'shine.jpg',
   [WeatherState.Clouds]: 'clouds.png',
@@ -11,3 +11,5 @@ export const cardBackgroundStatus = {
   [WeatherState.Snow]: 'snow.gif',
   [WeatherState.Thunderstorm]: 'thunderstorm.gif',
 };
+
+export { cardBackgroundPath, cardBackgroundStatus };

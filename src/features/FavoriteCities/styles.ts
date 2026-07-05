@@ -1,4 +1,4 @@
-export const styles = {
+const styles = {
   box: {
     display: 'flex',
     flexDirection: 'column',
@@ -19,3 +19,5 @@ export const styles = {
     overflowY: 'auto',
   },
 } as const;
+
+export { styles };

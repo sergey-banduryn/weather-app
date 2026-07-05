@@ -1,4 +1,4 @@
-export const styles = {
+const styles = {
   box: {
     borderRadius: 4,
     display: 'flex',
@@ -17,3 +17,5 @@ export const styles = {
     width: '100px',
   },
 } as const;
+
+export { styles };

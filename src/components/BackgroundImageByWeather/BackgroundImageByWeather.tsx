@@ -1,4 +1,4 @@
-import { WeatherState } from '@enums';
+import type { WeatherState } from '@enums';
 
 import { cardBackgroundPath, cardBackgroundStatus } from './constants';
 import { styles } from './styles';

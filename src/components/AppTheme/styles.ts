@@ -1,6 +1,6 @@
 import type { ComponentStyles } from '@types';
 
-export const styles: ComponentStyles = {
+const styles: ComponentStyles = {
   box: {
     alignItems: 'center',
     bgcolor: 'background.default',
@@ -13,3 +13,5 @@ export const styles: ComponentStyles = {
     width: '100%',
   },
 };
+
+export { styles };
