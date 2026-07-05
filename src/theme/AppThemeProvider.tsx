@@ -1,8 +1,7 @@
-/* eslint-disable perfectionist/sort-named-imports */
 import {
+  createTheme,
   type PaletteOptions,
   ThemeProvider,
-  createTheme,
 } from '@mui/material/styles';
 
 const lightPalette: PaletteOptions = {

@@ -13,8 +13,7 @@ function SearchCity() {
   };
 
   const onClick = (): void => {
-    //  eslint-disable-next-line @typescript-eslint/no-floating-promises
-    navigate(`/${value}`);
+    void navigate(`/${value}`);
     setValue('');
   };
 

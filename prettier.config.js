@@ -13,6 +13,7 @@ const config = {
   ],
   importOrderSeparation: true,
   importOrderSortSpecifiers: true,
+  importOrderCaseInsensitive: true,
   plugins: ['@trivago/prettier-plugin-sort-imports'],
   printWidth: 80,
   quoteProps: 'preserve',

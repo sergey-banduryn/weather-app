@@ -82,6 +82,8 @@ const sonarjsConfig = tseslint.config({
   rules: {
     'sonarjs/no-intrusive-permissions': 'off',
     'sonarjs/prefer-read-only-props': 'off',
+    'sonarjs/void-use': 'off',
+    'sonarjs/reduce-initial-value': 'off',
   },
 });
 

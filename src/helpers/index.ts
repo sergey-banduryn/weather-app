@@ -69,23 +69,17 @@ function getForecastDays(data: IForecastItemResponse[]): IForecastDays[] {
 function getMaxTempForDay(hours: IForecastItemResponse[]): number {
   if (hours.length === 0) return 0;
 
-  return (
-    hours
-      .map((hour) => Math.round(hour.main.temp))
-      // eslint-disable-next-line sonarjs/reduce-initial-value
-      .reduce((acc, val) => Math.max(acc, val))
-  );
+  return hours
+    .map((hour) => Math.round(hour.main.temp))
+    .reduce((acc, val) => Math.max(acc, val));
 }
 
 function getMinTempForDay(hours: IForecastItemResponse[]): number {
   if (hours.length === 0) return 0;
 
-  return (
-    hours
-      .map((hour) => Math.round(hour.main.temp))
-      // eslint-disable-next-line sonarjs/reduce-initial-value
-      .reduce((acc, val) => Math.min(acc, val))
-  );
+  return hours
+    .map((hour) => Math.round(hour.main.temp))
+    .reduce((acc, val) => Math.min(acc, val));
 }
 
 function getMonthName(dateString: string): string {
