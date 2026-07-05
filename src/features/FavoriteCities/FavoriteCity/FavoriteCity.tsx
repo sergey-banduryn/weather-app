@@ -29,7 +29,9 @@ function FavoriteCity({
 
   let formattedData;
 
-  if (isSuccess) formattedData = formatWeatherData(data);
+  if (isSuccess) {
+    formattedData = formatWeatherData(data);
+  }
 
   return (
     <Box sx={{ ...styles.box, bgcolor: palette.weatherWidgets?.cardBg }}>

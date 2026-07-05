@@ -12,10 +12,10 @@ function formatForecastData(
   let temp;
   temp = Math.round(data.main.temp);
   temp = temp > 0 ? '+' + String(temp) + '°' : String(temp) + '°';
-  const humidity = data.main.humidity;
+  const { humidity } = data.main;
   const speed = data.wind.speed.toFixed(1);
   const state = data.weather[0].main;
-  const deg = data.wind.deg;
+  const { deg } = data.wind;
 
   return { deg, humidity, speed, state, temp };
 }
@@ -29,13 +29,13 @@ function formatTemp(temp: number): string {
 }
 
 function formatWeatherData(data: IWeatherResponse): IFormattedWeatherData {
-  const name = data.name;
+  const { name } = data;
   let temp;
   temp = Math.round(data.main.temp);
   temp = temp > 0 ? '+' + String(temp) + '°' : String(temp) + '°';
   const humidity = String(data.main.humidity) + '%';
   const speed = data.wind.speed.toFixed(1);
-  const deg = data.wind.deg;
+  const { deg } = data.wind;
   const state = data.weather[0].main;
 
   return { deg, humidity, name, speed, state, temp };
@@ -68,7 +68,9 @@ function getForecastDays(data: IForecastItemResponse[]): IForecastDays[] {
 }
 
 function getMaxTempForDay(hours: IForecastItemResponse[]): number {
-  if (hours.length === 0) return 0;
+  if (hours.length === 0) {
+    return 0;
+  }
 
   return hours
     .map((hour) => Math.round(hour.main.temp))
@@ -76,7 +78,9 @@ function getMaxTempForDay(hours: IForecastItemResponse[]): number {
 }
 
 function getMinTempForDay(hours: IForecastItemResponse[]): number {
-  if (hours.length === 0) return 0;
+  if (hours.length === 0) {
+    return 0;
+  }
 
   return hours
     .map((hour) => Math.round(hour.main.temp))

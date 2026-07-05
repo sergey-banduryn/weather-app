@@ -26,8 +26,11 @@ const useStore = create<IStore>()(
         set((state) => {
           const set = new Set(state.favoriteCities);
 
-          if (set.has(city)) set.delete(city);
-          else set.add(city);
+          if (set.has(city)) {
+            set.delete(city);
+          } else {
+            set.add(city);
+          }
 
           return { favoriteCities: [...set] };
         });

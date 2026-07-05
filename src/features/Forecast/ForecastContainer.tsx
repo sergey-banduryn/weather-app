@@ -20,12 +20,16 @@ function ForecastContainer({ city }: IForecastContainerProps) {
   });
 
   useEffect(() => {
-    if (isError) toast(error.message);
+    if (isError) {
+      toast(error.message);
+    }
   }, [isError, error]);
 
   let forecastDays;
 
-  if (data) forecastDays = getForecastDays(data.list);
+  if (data) {
+    forecastDays = getForecastDays(data.list);
+  }
 
   return (
     <>

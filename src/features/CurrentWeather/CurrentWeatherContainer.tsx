@@ -29,12 +29,16 @@ function CurrentWeatherContainer({ city }: Props) {
   }, [city, isSuccess, addSearchedCity, data?.name]);
 
   useEffect(() => {
-    if (isError) toast(error.message);
+    if (isError) {
+      toast(error.message);
+    }
   }, [isError, error]);
 
   let formattedData;
 
-  if (data) formattedData = formatWeatherData(data);
+  if (data) {
+    formattedData = formatWeatherData(data);
+  }
 
   const isFavorite = favoriteCities.includes(city);
   const toggleFavoriteCity = () => {

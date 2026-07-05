@@ -17,11 +17,17 @@ function useCity(): IuseCityReturn {
     queryKey: ['fetchGeocodingToCity', coords?.latitude, coords?.longitude],
   });
 
-  if (cityFromURL) return { name: cityFromURL };
+  if (cityFromURL) {
+    return { name: cityFromURL };
+  }
 
-  if (data) return { name: data[0].name };
+  if (data) {
+    return { name: data[0].name };
+  }
 
-  if (isDone && !coords) return { name: 'Kyiv' };
+  if (isDone && !coords) {
+    return { name: 'Kyiv' };
+  }
 }
 
 export { useCity };

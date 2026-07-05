@@ -45,6 +45,15 @@ const tseslintConfig = tseslint.config({
     ],
     '@typescript-eslint/no-import-type-side-effects': 'error',
     '@typescript-eslint/no-non-null-assertion': 'off',
+    'curly': ['error', 'all'],
+    'eqeqeq': ['error', 'always'],
+    'no-console': ['error'],
+    'no-multiple-empty-lines': [
+      'error',
+      {
+        'max': 1,
+      },
+    ],
     'no-restricted-syntax': [
       'error',
       {
@@ -57,6 +66,8 @@ const tseslintConfig = tseslint.config({
         'selector': 'ExportAllDeclaration,ImportAllDeclaration',
       },
     ],
+    'prefer-destructuring': 'warn',
+    'quotes': ['error', 'single', { 'avoidEscape': true }],
   },
 });
 
