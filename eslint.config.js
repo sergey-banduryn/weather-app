@@ -1,4 +1,5 @@
 import stylistic from '@stylistic/eslint-plugin';
+import tanstackQuery from '@tanstack/eslint-plugin-query';
 import importPlugin from 'eslint-plugin-import';
 import perfectionist from 'eslint-plugin-perfectionist';
 import reactPlugin from 'eslint-plugin-react';
@@ -210,6 +211,12 @@ const stylisticConfig = tseslint.config({
   },
 });
 
+const tanstackQueryConfig = tseslint.config({
+  extends: [tanstackQuery.configs['flat/recommended-strict']],
+  files: ['src/**/*.{ts,tsx}'],
+  name: 'tanstackQuery',
+});
+
 const config = tseslint.config(
   ...ignoresConfig,
   ...tseslintConfig,
@@ -219,6 +226,7 @@ const config = tseslint.config(
   ...perfectionistConfig,
   ...importPluginConfig,
   ...stylisticConfig,
+  ...tanstackQueryConfig,
   {
     files: ['*.config.{js,ts}'],
     rules: {
