@@ -8,7 +8,7 @@ const config = {
   endOfLine: 'lf',
   importOrder: [
     '^@mui(.*)$',
-    '^@(api|assets|components|enums|features|helpers|hooks|pages|router|store|theme|types)(.*)$',
+    '^@(api|assets|components|enums|features|helpers|hooks|pages|react-queries|router|store|theme|types)(.*)$',
     '^[./]',
   ],
   importOrderCaseInsensitive: true,

@@ -1,11 +1,10 @@
-import { useQuery } from '@tanstack/react-query';
 import { useEffect } from 'react';
 import { toast } from 'react-toastify';
 
 import { Box, CircularProgress } from '@mui/material';
 
-import { fetchForecast } from '@api';
 import { getForecastDays } from '@helpers';
+import { useForecast } from '@react-queries';
 
 import { ForecastDays } from './ForecastDays';
 
@@ -14,10 +13,7 @@ interface IForecastContainerProps {
 }
 
 function ForecastContainer({ city }: IForecastContainerProps) {
-  const { data, error, isError, isPending } = useQuery({
-    queryFn: () => fetchForecast(city),
-    queryKey: ['fetchForecast', city],
-  });
+  const { data, error, isError, isPending } = useForecast(city);
 
   useEffect(() => {
     if (isError) {

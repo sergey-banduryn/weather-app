@@ -1,9 +1,8 @@
-import { useQuery } from '@tanstack/react-query';
 import { useEffect } from 'react';
 import { toast } from 'react-toastify';
 
-import { fetchWeather } from '@api';
 import { formatWeatherData } from '@helpers';
+import { useWeather } from '@react-queries';
 import { useStore } from '@store';
 
 import { CurrentWeatherData } from './components/CurrentWeatherData';
@@ -17,10 +16,7 @@ interface Props {
 function CurrentWeatherContainer({ city }: Props) {
   const { addSearchedCity, favoriteCities, toggleFavorite } = useStore();
 
-  const { data, error, isError, isPending, isSuccess } = useQuery({
-    queryFn: () => fetchWeather(city),
-    queryKey: ['fetchWeather', city],
-  });
+  const { data, error, isError, isPending, isSuccess } = useWeather(city);
 
   useEffect(() => {
     if (isSuccess) {

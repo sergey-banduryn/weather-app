@@ -1,7 +1,6 @@
-import { skipToken, useQuery } from '@tanstack/react-query';
 import { useParams } from 'react-router';
 
-import { fetchGeocodingToCity } from '@api';
+import { useGeocodingToCity } from '@react-queries';
 
 import { useGeolocationCoords } from './useGeolocationCoords';
 
@@ -12,10 +11,7 @@ function useCity(): IuseCityReturn {
 
   const { coords, isDone } = useGeolocationCoords();
 
-  const { data } = useQuery({
-    queryFn: coords ? () => fetchGeocodingToCity(coords) : skipToken,
-    queryKey: ['fetchGeocodingToCity', coords?.latitude, coords?.longitude],
-  });
+  const { data } = useGeocodingToCity(coords);
 
   if (cityFromURL) {
     return { name: cityFromURL };

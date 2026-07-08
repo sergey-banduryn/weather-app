@@ -1,11 +1,9 @@
-import { useQuery } from '@tanstack/react-query';
-
 import { Box, Typography, useTheme } from '@mui/material';
 
-import { fetchWeather } from '@api';
 import { FavoriteBtn } from '@components/FavoriteBtn';
 import { WeatherStateIcon } from '@components/WeatherStateIcon';
 import { formatWeatherData } from '@helpers';
+import { useWeather } from '@react-queries';
 
 import { styles } from './styles';
 
@@ -20,10 +18,7 @@ function FavoriteCity({
   isFavorite,
   toggleFavorite,
 }: IFavoriteCityProps) {
-  const { data, isSuccess } = useQuery({
-    queryFn: () => fetchWeather(city),
-    queryKey: ['fetchWeather', city],
-  });
+  const { data, isSuccess } = useWeather(city);
 
   const { palette } = useTheme();
 
