@@ -33,5 +33,4 @@ function Wind({ deg, speed, styles: exStyles }: Props) {
   );
 }
 
-export { Wind };
-export type { WindStyles };
+export { Wind, type WindStyles };

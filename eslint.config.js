@@ -67,6 +67,11 @@ const tseslintConfig = tseslint.config({
         'message': 'Export/Import all (*) is forbidden.',
         'selector': 'ExportAllDeclaration,ImportAllDeclaration',
       },
+      {
+        'message': 'Please combine all exports into a single export statement.',
+        'selector':
+          'Program > ExportNamedDeclaration[source=null] ~ ExportNamedDeclaration[source=null]',
+      },
     ],
     'prefer-destructuring': 'warn',
     'quotes': ['error', 'single', { 'avoidEscape': true }],
