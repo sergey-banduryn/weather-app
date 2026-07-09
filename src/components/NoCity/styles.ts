@@ -3,19 +3,19 @@ import type { ComponentStyles } from '@types';
 const styles = {
   box: {
     alignItems: 'center',
+    bgcolor: '#ffedd3',
     borderRadius: 4,
     display: 'flex',
-    justifyContent: 'space-between',
-    px: 2,
-    py: 1,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    p: 3,
+    position: 'relative',
     width: 250,
   },
-  cityName: {
-    width: 1 / 3,
-  },
-  stateIcon: {
-    height: 36,
-    width: 36,
+  icon: {
+    color: 'grey',
+    height: 70,
+    width: 70,
   },
 } satisfies ComponentStyles;
 

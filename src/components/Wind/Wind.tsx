@@ -17,15 +17,15 @@ interface WindStyles {
 }
 
 function Wind({ deg, speed, styles: exStyles }: Props) {
+  const arrowWrapStyles = [
+    styles.arrowWrap,
+    { rotate: `${String(deg)}deg` },
+    exStyles.arrowWrap ?? {},
+  ];
+
   return (
     <Box sx={styles.wind}>
-      <Box
-        sx={[
-          styles.arrowWrap,
-          { rotate: `${String(deg)}deg` },
-          exStyles.arrowWrap ?? {},
-        ]}
-      >
+      <Box sx={arrowWrapStyles}>
         <NorthIcon sx={styles.arrow} />
       </Box>
       <Typography variant={exStyles.variant}>{speed}</Typography>

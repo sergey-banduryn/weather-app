@@ -1,3 +1,5 @@
+import type { ChangeEvent } from 'react';
+
 import Box from '@mui/material/Box';
 import FormControl from '@mui/material/FormControl';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -11,6 +13,10 @@ import { styles } from './styles';
 function AppTheme() {
   const { colorScheme, setColorScheme } = useColorScheme();
 
+  const onChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setColorScheme(event.target.value as 'dark' | 'light');
+  };
+
   return (
     <Box sx={styles.box}>
       <FormControl>
@@ -18,9 +24,7 @@ function AppTheme() {
         <RadioGroup
           aria-labelledby="demo-theme-toggle"
           name="theme-toggle"
-          onChange={(event) => {
-            setColorScheme(event.target.value as 'dark' | 'light');
-          }}
+          onChange={onChange}
           row
           value={colorScheme}
         >

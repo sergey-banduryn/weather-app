@@ -1,3 +1,5 @@
+import type { CSSProperties } from 'react';
+
 const styles = {
   image: {
     borderRadius: 16,
@@ -13,6 +15,6 @@ const styles = {
     width: '100%',
     zIndex: 1,
   },
-} as const;
+} satisfies Record<string, CSSProperties>;
 
 export { styles };

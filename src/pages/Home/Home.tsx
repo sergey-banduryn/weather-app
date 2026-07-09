@@ -9,28 +9,19 @@ import { FavoriteCities } from '@features/FavoriteCities';
 import { ForecastContainer } from '@features/Forecast';
 import { useCity } from '@hooks';
 
+import { styles } from './styles';
+
 function Home() {
   const city = useCity();
 
   return (
     <Container maxWidth="md">
       <AppTheme />
-      <Box
-        sx={{
-          my: 4,
-        }}
-      >
+      <Box sx={styles.searchBox}>
         <SearchCity />
         <SearchHistory />
       </Box>
-      <Box
-        sx={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          my: 2,
-          width: 760,
-        }}
-      >
+      <Box sx={styles.mainBox}>
         {city ? <CurrentWeatherContainer city={city.name} /> : <NoCity />}
         <FavoriteCities />
       </Box>

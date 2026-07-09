@@ -1,3 +1,5 @@
+import type { ComponentStyles } from '@types';
+
 const styles = {
   box: {
     borderRadius: 4,
@@ -20,6 +22,6 @@ const styles = {
   minMaxValue: {
     textAlign: 'center',
   },
-} as const;
+} satisfies ComponentStyles;
 
 export { styles };

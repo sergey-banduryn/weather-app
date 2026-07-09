@@ -4,6 +4,8 @@ import { Box, Link } from '@mui/material';
 
 import { useStore } from '@store';
 
+import { styles } from './styles';
+
 function SearchHistory() {
   const { searchedCities } = useStore();
 
@@ -15,7 +17,7 @@ function SearchHistory() {
     );
   });
 
-  return <Box sx={{ display: 'flex', gap: 1, my: 1 }}>{links}</Box>;
+  return <Box sx={styles.box}>{links}</Box>;
 }
 
 export { SearchHistory };

@@ -1,9 +1,11 @@
 import type { ComponentStyles } from '@types';
 
 const styles = {
-  image: {
-    height: 'auto',
-    width: '100%',
+  box: {
+    alignItems: 'center',
+    display: 'flex',
+    height: 310,
+    justifyContent: 'center',
   },
 } satisfies ComponentStyles;
 

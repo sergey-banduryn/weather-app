@@ -5,8 +5,9 @@ import { Box } from '@mui/material';
 import { getMaxTempForDay, getMinTempForDay } from '@helpers';
 import type { IForecastDays } from '@types';
 
-import { ForecastDay } from './ForecastDay';
-import { ForecastHours } from './ForecastHours';
+import { ForecastDay } from '../ForecastDay';
+import { ForecastHours } from '../ForecastHours';
+import { styles } from './styles';
 
 interface IForecastDaysProps {
   data: IForecastDays[];
@@ -40,14 +41,7 @@ function ForecastDays({ data }: IForecastDaysProps) {
 
   return (
     <>
-      <Box
-        sx={{
-          display: 'flex',
-          gap: 1,
-        }}
-      >
-        {days}
-      </Box>
+      <Box sx={styles.box}>{days}</Box>
       {selectedDay && <ForecastHours hours={selectedDay.hours} />}
     </>
   );

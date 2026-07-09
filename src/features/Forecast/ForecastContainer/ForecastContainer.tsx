@@ -6,7 +6,8 @@ import { Box, CircularProgress } from '@mui/material';
 import { getForecastDays } from '@helpers';
 import { useForecast } from '@react-queries';
 
-import { ForecastDays } from './ForecastDays';
+import { ForecastDays } from '../ForecastDays';
+import { styles } from './styles';
 
 interface IForecastContainerProps {
   city: string;
@@ -30,14 +31,7 @@ function ForecastContainer({ city }: IForecastContainerProps) {
   return (
     <>
       {isPending && (
-        <Box
-          sx={{
-            alignItems: 'center',
-            display: 'flex',
-            height: 310,
-            justifyContent: 'center',
-          }}
-        >
+        <Box sx={styles.box}>
           <CircularProgress />
         </Box>
       )}

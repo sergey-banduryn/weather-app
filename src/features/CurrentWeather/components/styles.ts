@@ -1,3 +1,5 @@
+import type { ComponentStyles } from '@types';
+
 const styles = {
   arrow: {
     color: 'grey',
@@ -40,6 +42,6 @@ const styles = {
     display: 'flex',
     gap: 1,
   },
-} as const;
+} satisfies ComponentStyles;
 
 export { styles };

@@ -1,3 +1,5 @@
+import type { ComponentStyles } from '@types';
+
 const styles = {
   box: {
     borderRadius: 4,
@@ -16,6 +18,6 @@ const styles = {
     flexDirection: 'column',
     width: '100px',
   },
-} as const;
+} satisfies ComponentStyles;
 
 export { styles };

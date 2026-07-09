@@ -1,21 +1,14 @@
 import type { ComponentStyles } from '@types';
 
 const styles = {
-  box: {
-    alignItems: 'center',
-    borderRadius: 4,
+  mainBox: {
     display: 'flex',
     justifyContent: 'space-between',
-    px: 2,
-    py: 1,
-    width: 250,
+    my: 2,
+    width: 760,
   },
-  cityName: {
-    width: 1 / 3,
-  },
-  stateIcon: {
-    height: 36,
-    width: 36,
+  searchBox: {
+    my: 4,
   },
 } satisfies ComponentStyles;
 

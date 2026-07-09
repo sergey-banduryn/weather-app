@@ -1,9 +1,9 @@
 import type { ComponentStyles } from '@types';
 
 const styles = {
-  image: {
-    height: 'auto',
-    width: '100%',
+  box: {
+    display: 'flex',
+    gap: 1,
   },
 } satisfies ComponentStyles;
 
