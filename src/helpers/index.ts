@@ -90,7 +90,7 @@ function getMinTempForDay(hours: IForecastItemResponse[]): number {
 function getMonthName(dateString: string): string {
   const options: Intl.DateTimeFormatOptions = { month: 'long' };
 
-  return new Intl.DateTimeFormat(undefined, options).format(
+  return new Intl.DateTimeFormat('en-US', options).format(
     new Date(Date.parse(dateString)),
   );
 }
@@ -98,7 +98,7 @@ function getMonthName(dateString: string): string {
 function getWeekdayName(dateString: string): string {
   const options: Intl.DateTimeFormatOptions = { weekday: 'long' };
 
-  return new Intl.DateTimeFormat(undefined, options).format(
+  return new Intl.DateTimeFormat('en-US', options).format(
     new Date(Date.parse(dateString)),
   );
 }
