@@ -12,9 +12,19 @@ function SearchCity() {
     setValue(event.target.value);
   };
 
-  const onClick = (): void => {
+  const performNavigation = (): void => {
     void navigate(`/${value}`);
     setValue('');
+  };
+
+  const onClick = (): void => {
+    performNavigation();
+  };
+
+  const onKeyDown = (event: React.KeyboardEvent<HTMLInputElement>): void => {
+    if (event.key === 'Enter') {
+      performNavigation();
+    }
   };
 
   return (
@@ -22,6 +32,7 @@ function SearchCity() {
       <TextField
         id="search"
         onChange={onChange}
+        onKeyDown={onKeyDown}
         placeholder="Search city"
         size="small"
         value={value}
