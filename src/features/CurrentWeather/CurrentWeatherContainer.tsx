@@ -36,9 +36,9 @@ function CurrentWeatherContainer({ city }: Props) {
     formattedData = formatWeatherData(data);
   }
 
-  const isFavorite = favoriteCities.includes(city);
+  const isFavorite = favoriteCities.includes(data?.name ?? city);
   const toggleFavoriteCity = () => {
-    toggleFavorite(city);
+    toggleFavorite(data?.name ?? city);
   };
   const favorite = {
     isFavorite,
@@ -46,7 +46,7 @@ function CurrentWeatherContainer({ city }: Props) {
   };
 
   return (
-    <CurrentWeatherLayout {...{ city, favorite }}>
+    <CurrentWeatherLayout {...{ city: data?.name ?? city, favorite }}>
       {isPending && <CurrentWeatherSkeleton />}
       {isSuccess && formattedData && (
         <CurrentWeatherData data={formattedData} />
