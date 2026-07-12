@@ -1,6 +1,3 @@
-import { useEffect } from 'react';
-import { toast } from 'react-toastify';
-
 import { Box, CircularProgress } from '@mui/material';
 
 import { getForecastDays } from '@helpers';
@@ -14,13 +11,7 @@ interface IForecastContainerProps {
 }
 
 function ForecastContainer({ city }: IForecastContainerProps) {
-  const { data, error, isError, isPending } = useForecast(city);
-
-  useEffect(() => {
-    if (isError) {
-      toast(error.message);
-    }
-  }, [isError, error]);
+  const { data, isPending } = useForecast(city);
 
   let forecastDays;
 
