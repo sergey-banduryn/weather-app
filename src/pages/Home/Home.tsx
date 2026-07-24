@@ -1,6 +1,6 @@
 import { Box, Container } from '@mui/material';
 
-import { AppTheme } from '@components/AppTheme';
+import { AppThemeButton } from '@components/AppThemeButton';
 import { NoCity } from '@components/NoCity';
 import { SearchCity } from '@components/SearchCity';
 import { SearchHistory } from '@components/SearchHistory';
@@ -16,9 +16,11 @@ function Home() {
 
   return (
     <Container maxWidth="md">
-      <AppTheme />
       <Box sx={styles.searchBox}>
-        <SearchCity />
+        <Box sx={styles.wrapperBox}>
+          <SearchCity />
+          <AppThemeButton />
+        </Box>
         <SearchHistory />
       </Box>
       <Box sx={styles.mainBox}>

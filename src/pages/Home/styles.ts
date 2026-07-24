@@ -10,6 +10,10 @@ const styles = {
   searchBox: {
     my: 4,
   },
+  wrapperBox: {
+    display: 'flex',
+    justifyContent: 'space-between',
+  },
 } satisfies ComponentStyles;
 
 export { styles };
