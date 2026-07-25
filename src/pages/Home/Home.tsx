@@ -1,4 +1,4 @@
-import { Box, Container } from '@mui/material';
+import { Box } from '@mui/material';
 
 import { AppThemeButton } from '@components/AppThemeButton';
 import { NoCity } from '@components/NoCity';
@@ -9,26 +9,37 @@ import { FavoriteCities } from '@features/FavoriteCities';
 import { ForecastContainer } from '@features/Forecast';
 import { useCity } from '@hooks';
 
+import { HomeLayout } from './HomeLayout';
 import { styles } from './styles';
 
 function Home() {
   const city = useCity();
 
+  const searchSlot = (
+    <>
+      <Box sx={styles.wrapperBox}>
+        <SearchCity />
+        <AppThemeButton />
+      </Box>
+      <SearchHistory />
+    </>
+  );
+
+  const currentWeatherSlot = city ? (
+    <CurrentWeatherContainer city={city.name} />
+  ) : (
+    <NoCity />
+  );
+
+  const forecastSlot = city && <ForecastContainer city={city.name} />;
+
   return (
-    <Container maxWidth="md">
-      <Box sx={styles.searchBox}>
-        <Box sx={styles.wrapperBox}>
-          <SearchCity />
-          <AppThemeButton />
-        </Box>
-        <SearchHistory />
-      </Box>
-      <Box sx={styles.mainBox}>
-        {city ? <CurrentWeatherContainer city={city.name} /> : <NoCity />}
-        <FavoriteCities />
-      </Box>
-      {city && <ForecastContainer city={city.name} />}
-    </Container>
+    <HomeLayout
+      currentWeatherSlot={currentWeatherSlot}
+      favoritesSlot={<FavoriteCities />}
+      forecastSlot={forecastSlot}
+      searchSlot={searchSlot}
+    />
   );
 }
 
