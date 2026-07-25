@@ -4,10 +4,10 @@ const styles = {
   box: {
     borderRadius: 4,
     display: 'flex',
-    my: 2,
     p: 2,
     width: 'min-content',
   },
+  overflow: { overflowX: 'auto', width: '100%' },
   timeTitle: {
     textAlign: 'center',
     width: '100%',

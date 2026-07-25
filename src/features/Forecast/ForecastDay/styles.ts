@@ -4,6 +4,7 @@ const styles = {
   box: {
     borderRadius: 4,
     cursor: 'pointer',
+    flex: '0 0 auto',
     p: 2,
     textAlign: 'center',
     width: 120,

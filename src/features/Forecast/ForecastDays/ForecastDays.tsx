@@ -41,7 +41,9 @@ function ForecastDays({ data }: IForecastDaysProps) {
 
   return (
     <>
-      <Box sx={styles.box}>{days}</Box>
+      <Box className="padding" sx={styles.box}>
+        {days}
+      </Box>
       {selectedDay && <ForecastHours hours={selectedDay.hours} />}
     </>
   );

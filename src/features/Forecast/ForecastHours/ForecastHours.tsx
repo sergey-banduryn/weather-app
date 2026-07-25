@@ -27,15 +27,17 @@ function ForecastHours({ hours }: IForecastHoursProps) {
   });
 
   return (
-    <Box sx={{ ...styles.box, bgcolor: palette.weatherWidgets?.hourlyBg }}>
-      <Box sx={styles.titles}>
-        <Typography sx={styles.timeTitle}>&nbsp;</Typography>
-        <Typography>&nbsp;</Typography>
-        <Typography>Temp, °C</Typography>
-        <Typography>Humidity, %</Typography>
-        <Typography>Wind, m/s</Typography>
+    <Box className="padding" sx={styles.overflow}>
+      <Box sx={{ ...styles.box, bgcolor: palette.weatherWidgets?.hourlyBg }}>
+        <Box sx={styles.titles}>
+          <Typography sx={styles.timeTitle}>&nbsp;</Typography>
+          <Typography>&nbsp;</Typography>
+          <Typography>Temp, °C</Typography>
+          <Typography>Humidity, %</Typography>
+          <Typography>Wind, m/s</Typography>
+        </Box>
+        {forecastHours}
       </Box>
-      {forecastHours}
     </Box>
   );
 }

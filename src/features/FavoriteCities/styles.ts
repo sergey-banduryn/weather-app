@@ -2,7 +2,7 @@ const styles = {
   box: {
     display: 'flex',
     flexDirection: 'column',
-    gap: 1,
+    gap: '9px',
   },
   hidden: {
     '&::-webkit-scrollbar': {
@@ -14,7 +14,7 @@ const styles = {
     '&::-webkit-scrollbar-track': {
       bgcolor: 'transparent',
     },
-    height: 190,
+    height: 186,
     overflowX: 'hidden',
     overflowY: 'auto',
   },
