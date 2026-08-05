@@ -103,6 +103,12 @@ function getWeekdayName(dateString: string): string {
   );
 }
 
+function isWeekend(dateString: string): boolean {
+  const dayOfWeek = new Date(dateString).getDay();
+
+  return dayOfWeek === 0 || dayOfWeek === 6;
+}
+
 export {
   formatForecastData,
   formatTemp,
@@ -113,4 +119,5 @@ export {
   getMinTempForDay,
   getMonthName,
   getWeekdayName,
+  isWeekend,
 };

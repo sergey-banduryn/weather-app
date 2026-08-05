@@ -1,6 +1,6 @@
 import { Box, Typography, useTheme } from '@mui/material';
 
-import { formatTemp, getMonthName, getWeekdayName } from '@helpers';
+import { formatTemp, getMonthName, getWeekdayName, isWeekend } from '@helpers';
 
 import { styles } from './styles';
 
@@ -27,6 +27,7 @@ function ForecastDay({
   const day = d_txt.slice(8);
   const min = formatTemp(minMaxTemp.min);
   const max = formatTemp(minMaxTemp.max);
+  const isWeekendDay = isWeekend(d_txt);
 
   return (
     <Box
@@ -41,7 +42,9 @@ function ForecastDay({
       <Typography sx={styles.capitalize} variant="subtitle2">
         {weekdayName}
       </Typography>
-      <Typography variant="h5">{day}</Typography>
+      <Typography sx={styles.day(isWeekendDay)} variant="h5">
+        {day}
+      </Typography>
       <Typography sx={styles.capitalize} variant="subtitle2">
         {monthName}
       </Typography>

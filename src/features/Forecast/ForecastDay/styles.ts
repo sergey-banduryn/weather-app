@@ -1,5 +1,3 @@
-import type { ComponentStyles } from '@types';
-
 const styles = {
   box: {
     borderRadius: 4,
@@ -12,6 +10,9 @@ const styles = {
   capitalize: {
     textTransform: 'capitalize',
   },
+  day: (isWeekend: boolean) => ({
+    color: isWeekend ? 'firebrick' : 'inherit',
+  }),
   minMaxBox: {
     display: 'flex',
     justifyContent: 'space-around',
@@ -23,6 +24,6 @@ const styles = {
   minMaxValue: {
     textAlign: 'center',
   },
-} satisfies ComponentStyles;
+} as const;
 
 export { styles };
