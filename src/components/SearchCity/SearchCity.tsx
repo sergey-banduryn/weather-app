@@ -30,11 +30,17 @@ function SearchCity() {
   return (
     <Box>
       <TextField
-        id="search"
+        id="city"
+        name="city"
         onChange={onChange}
         onKeyDown={onKeyDown}
         placeholder="Search city"
         size="small"
+        slotProps={{
+          htmlInput: {
+            autoComplete: 'address-level2',
+          },
+        }}
         value={value}
         variant="outlined"
       />
