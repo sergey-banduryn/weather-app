@@ -3,6 +3,7 @@ import { persist } from 'zustand/middleware';
 
 interface IStore {
   addSearchedCity: (city: string) => void;
+  clearSearchedCities: () => void;
   favoriteCities: string[];
   searchedCities: string[];
   toggleFavorite: (city: string) => void;
@@ -19,6 +20,9 @@ const useStore = create<IStore>()(
 
           return { searchedCities: [...set] };
         });
+      },
+      clearSearchedCities: () => {
+        set({ searchedCities: [] });
       },
       favoriteCities: [],
       searchedCities: [],

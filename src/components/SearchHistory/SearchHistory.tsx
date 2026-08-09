@@ -1,13 +1,14 @@
 import { Link as RouterLink } from 'react-router';
 
-import { Box, Link } from '@mui/material';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import { Box, IconButton, Link } from '@mui/material';
 
 import { useStore } from '@store';
 
 import { styles } from './styles';
 
 function SearchHistory() {
-  const { searchedCities } = useStore();
+  const { clearSearchedCities, searchedCities } = useStore();
 
   const links = searchedCities.toReversed().map((city) => {
     return (
@@ -17,7 +18,21 @@ function SearchHistory() {
     );
   });
 
-  return <Box sx={styles.box}>{links}</Box>;
+  return (
+    <Box sx={styles.box}>
+      {links}
+      {searchedCities.length > 0 && (
+        <IconButton
+          aria-label="Clear search history"
+          color="primary"
+          onClick={clearSearchedCities}
+          size="small"
+        >
+          <DeleteOutlineIcon fontSize="small" />
+        </IconButton>
+      )}
+    </Box>
+  );
 }
 
 export { SearchHistory };
