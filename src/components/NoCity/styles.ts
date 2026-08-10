@@ -14,8 +14,8 @@ const styles = {
   },
   icon: {
     color: 'grey',
-    height: 70,
-    width: 70,
+    height: 56,
+    width: 56,
   },
 } satisfies ComponentStyles;
 

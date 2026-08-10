@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import { toast } from 'react-toastify';
 
+import { NoCity } from '@components/NoCity';
 import { formatWeatherData } from '@helpers';
 import { useWeather } from '@react-queries';
 import { useStore } from '@store';
@@ -16,19 +16,13 @@ interface Props {
 function CurrentWeatherContainer({ city }: Props) {
   const { addSearchedCity, favoriteCities, toggleFavorite } = useStore();
 
-  const { data, error, isError, isPending, isSuccess } = useWeather(city);
+  const { data, isError, isPending, isSuccess } = useWeather(city);
 
   useEffect(() => {
     if (isSuccess) {
       addSearchedCity(data.name);
     }
   }, [city, isSuccess, addSearchedCity, data?.name]);
-
-  useEffect(() => {
-    if (isError) {
-      toast(error.message);
-    }
-  }, [isError, error]);
 
   let formattedData;
 
@@ -46,12 +40,17 @@ function CurrentWeatherContainer({ city }: Props) {
   };
 
   return (
-    <CurrentWeatherLayout {...{ city: data?.name ?? city, favorite }}>
-      {isPending && <CurrentWeatherSkeleton />}
-      {isSuccess && formattedData && (
-        <CurrentWeatherData data={formattedData} />
+    <>
+      {isError && <NoCity />}
+      {!isError && (
+        <CurrentWeatherLayout {...{ city: data?.name ?? '', favorite }}>
+          {isPending && <CurrentWeatherSkeleton />}
+          {isSuccess && formattedData && (
+            <CurrentWeatherData data={formattedData} />
+          )}
+        </CurrentWeatherLayout>
       )}
-    </CurrentWeatherLayout>
+    </>
   );
 }
 

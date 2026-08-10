@@ -1,7 +1,6 @@
 import { Box } from '@mui/material';
 
 import { AppThemeButton } from '@components/AppThemeButton';
-import { NoCity } from '@components/NoCity';
 import { SearchCity } from '@components/SearchCity';
 import { SearchHistory } from '@components/SearchHistory';
 import { CurrentWeatherContainer } from '@features/CurrentWeather';
@@ -25,10 +24,8 @@ function Home() {
     </>
   );
 
-  const currentWeatherSlot = city ? (
+  const currentWeatherSlot = city && (
     <CurrentWeatherContainer city={city.name} />
-  ) : (
-    <NoCity />
   );
 
   const forecastSlot = city && <ForecastContainer city={city.name} />;

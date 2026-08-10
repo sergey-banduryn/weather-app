@@ -1,15 +1,17 @@
 import SearchIcon from '@mui/icons-material/Search';
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, useTheme } from '@mui/material';
 
 import { styles } from './styles';
 
 function NoCity() {
+  const { palette } = useTheme();
+
   return (
-    <Box sx={styles.box}>
+    <Box sx={{ ...styles.box, bgcolor: palette.weatherWidgets?.mainBg }}>
       <Box>
         <SearchIcon sx={styles.icon} />
       </Box>
-      <Typography>Please, search city</Typography>
+      <Typography>City not found. Please, search again.</Typography>
     </Box>
   );
 }
