@@ -14,7 +14,7 @@ const styles = {
     '&::-webkit-scrollbar-track': {
       bgcolor: 'transparent',
     },
-    height: 186,
+    maxHeight: 186,
     overflowX: 'hidden',
     overflowY: 'auto',
   },

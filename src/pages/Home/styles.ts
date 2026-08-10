@@ -30,6 +30,7 @@ const styles = {
     gridTemplateColumns: '1fr 1fr',
     gridTemplateRows: 'repeat(3, auto)',
     maxWidth: '760px',
+    mb: 15,
     mx: 'auto',
     [theme.breakpoints.down('sm')]: {
       gridTemplateAreas: `
