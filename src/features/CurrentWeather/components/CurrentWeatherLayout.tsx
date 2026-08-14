@@ -20,7 +20,7 @@ function CurrentWeatherLayout({ children, city, favorite }: Props) {
 
   return (
     <Box sx={{ ...styles.box, bgcolor: palette.weatherWidgets?.mainBg }}>
-      <Typography sx={styles.text} variant="h4">
+      <Typography sx={{ ...styles.cityText }} variant="h4">
         {city}
       </Typography>
       <Box sx={styles.favoriteBtn}>

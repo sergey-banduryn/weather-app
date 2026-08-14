@@ -19,6 +19,11 @@ const styles = {
     position: 'relative',
     width: 250,
   },
+  cityText: {
+    height: 42,
+    position: 'relative',
+    zIndex: 2,
+  },
   favoriteBtn: {
     position: 'absolute',
     right: '5%',
