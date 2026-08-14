@@ -4,7 +4,7 @@ const styles = {
   box: {
     alignItems: 'center',
     display: 'flex',
-    height: 310,
+    height: 318,
     justifyContent: 'center',
   },
 } satisfies ComponentStyles;
