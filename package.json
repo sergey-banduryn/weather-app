@@ -14,7 +14,7 @@
     "format": "npm run _prettier -- --write",
     "lint": "concurrently \"npm:lint:*\"",
     "lint:editorconfig": "editorconfig-checker",
-    "lint:type": "tsc --noEmit",
+    "lint:type": "tsc --build --noEmit",
     "lint:js": "eslint . --max-warnings=0",
     "lint:format": "npm run _prettier -- --check",
     "preview": "vite preview"
