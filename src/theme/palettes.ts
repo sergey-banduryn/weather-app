@@ -45,7 +45,7 @@ const darkPalette: PaletteOptions = {
     main: '#f48fb1',
   },
   text: {
-    primary: '#ffffff',
+    primary: '#d0d0d0',
     secondary: '#8892b0',
   },
   weatherWidgets: {
