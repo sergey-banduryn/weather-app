@@ -1,6 +1,6 @@
 import { WeatherState } from '@enums';
 
-const cardBackgroundPath = '/weather-card-background/';
+const cardBackgroundPath = `${import.meta.env.BASE_URL}weather-card-background/`;
 
 const cardBackgroundStatus = {
   [WeatherState.Atmosphere]: 'atmosphere.webp',

@@ -1,6 +1,6 @@
 import { WeatherState } from '@enums';
 
-const skyStatePath = '/weather-state-icons/';
+const skyStatePath = `${import.meta.env.BASE_URL}weather-state-icons/`;
 
 const skyImagesByState = {
   [WeatherState.Atmosphere]: 'atmosphere.png',
